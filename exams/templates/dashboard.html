@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <!-- Teachers Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>Teachers</h3>
+                    <a href="{% url 'create_teacher' %}" class="btn btn-primary btn-sm">Add Teacher</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for teacher in teachers %}
+                                <tr>
+                                    <td>{{ teacher.user.username }}</td>
+                                    <td>{{ teacher.user.email }}</td>
+                                    <td>
+                                        <a href="{% url 'change_teacher_password' teacher.id %}" class="btn btn-warning btn-sm">Change Password</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <a href="{% url 'teacher_list' %}" class="btn btn-outline-primary btn-sm">View All Teachers</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Students Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>Students</h3>
+                    <a href="{% url 'create_student' %}" class="btn btn-primary btn-sm">Add Student</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Grade</th>
+                                    <th>Teacher</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for student in students %}
+                                <tr>
+                                    <td>{{ student.user.username }}</td>
+                                    <td>{{ student.get_grade_display }}</td>
+                                    <td>{{ student.teacher.user.username }}</td>
+                                    <td>
+                                        <div class="btn-group btn-group-sm">
+                                            <a href="{% url 'change_student_password' student.id %}" class="btn btn-warning">Change Password</a>
+                                            <a href="{% url 'delete_student' student.id %}" class="btn btn-danger">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <a href="{% url 'student_list' %}" class="btn btn-outline-primary btn-sm">View All Students</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
