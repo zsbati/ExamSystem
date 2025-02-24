@@ -4,6 +4,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
+from django.core.paginator import Paginator
+from django.db.models import Q
 from .forms import StudentCreationForm, TeacherCreationForm, ChangeUserPasswordForm
 from .models import Student, Teacher
 
@@ -26,11 +28,48 @@ def home(request):
     context = {}
     
     if request.user.is_superuser:
-        students = Student.objects.all().select_related('user', 'teacher')
-        teachers = Teacher.objects.all().select_related('user')
-        context['students'] = students
-        context['teachers'] = teachers
-        return render(request, 'dashboard.html', context)
+        # Get search parameters
+        search_query = request.GET.get('search', '')
+        grade_filter = request.GET.get('grade', '')
+        teacher_filter = request.GET.get('teacher', '')
+        
+        # Query students with filters
+        students = Student.objects.select_related('user', 'teacher').order_by('user__username')
+        teachers = Teacher.objects.select_related('user').order_by('user__username')
+        
+        if search_query:
+            students = students.filter(
+                Q(user__username__icontains=search_query) |
+                Q(user__email__icontains=search_query) |
+                Q(teacher__user__username__icontains=search_query)
+            )
+            teachers = teachers.filter(
+                Q(user__username__icontains=search_query) |
+                Q(user__email__icontains=search_query)
+            )
+        
+        if grade_filter:
+            students = students.filter(grade=grade_filter)
+            
+        if teacher_filter:
+            students = students.filter(teacher_id=teacher_filter)
+        
+        # Pagination
+        student_paginator = Paginator(students, 10)  # 10 students per page
+        teacher_paginator = Paginator(teachers, 10)  # 10 teachers per page
+        
+        student_page = request.GET.get('student_page', 1)
+        teacher_page = request.GET.get('teacher_page', 1)
+        
+        context['students'] = student_paginator.get_page(student_page)
+        context['teachers'] = teacher_paginator.get_page(teacher_page)
+        context['grades'] = dict(Student.GRADE_CHOICES)
+        context['all_teachers'] = Teacher.objects.all()
+        context['search_query'] = search_query
+        context['grade_filter'] = grade_filter
+        context['teacher_filter'] = teacher_filter
+        
+        return render(request, 'exams/dashboard.html', context)
     
     return render(request, 'home.html', context)
 
@@ -52,12 +91,12 @@ def create_teacher(request):
     else:
         form = TeacherCreationForm()
     
-    return render(request, 'teacher/create_teacher.html', {'form': form})
+    return render(request, 'exams/teacher/create_teacher.html', {'form': form})
 
 @user_passes_test(is_superuser)
 def teacher_list(request):
     teachers = Teacher.objects.all().select_related('user')
-    return render(request, 'teacher/teacher_list.html', {'teachers': teachers})
+    return render(request, 'exams/teacher/teacher_list.html', {'teachers': teachers})
 
 @user_passes_test(is_superuser)
 def create_student(request):
@@ -70,12 +109,12 @@ def create_student(request):
     else:
         form = StudentCreationForm()
     
-    return render(request, 'student/create_student.html', {'form': form})
+    return render(request, 'exams/student/create_student.html', {'form': form})
 
 @user_passes_test(is_superuser)
 def student_list(request):
     students = Student.objects.all().select_related('user', 'teacher')
-    return render(request, 'student/student_list.html', {'students': students})
+    return render(request, 'exams/student/student_list.html', {'students': students})
 
 @user_passes_test(is_superuser)
 def delete_student(request, student_id):
@@ -87,7 +126,7 @@ def delete_student(request, student_id):
         messages.success(request, f'Student {user.username} has been deleted successfully.')
         return redirect('home')
     
-    return render(request, 'student/confirm_delete.html', {'student': student})
+    return render(request, 'exams/student/confirm_delete.html', {'student': student})
 
 @user_passes_test(is_superuser)
 def change_student_password(request, student_id):
@@ -101,7 +140,7 @@ def change_student_password(request, student_id):
     else:
         form = ChangeUserPasswordForm(user=student.user)
     
-    return render(request, 'student/change_password.html', {
+    return render(request, 'exams/student/change_password.html', {
         'form': form,
         'student': student
     })
@@ -118,7 +157,7 @@ def change_teacher_password(request, teacher_id):
     else:
         form = ChangeUserPasswordForm(user=teacher.user)
     
-    return render(request, 'teacher/change_password.html', {
+    return render(request, 'exams/teacher/change_password.html', {
         'form': form,
         'teacher': teacher
     })
@@ -136,4 +175,4 @@ def change_own_password(request):
     else:
         form = PasswordChangeForm(request.user)
     
-    return render(request, 'change_own_password.html', {'form': form})
+    return render(request, 'exams/change_own_password.html', {'form': form})
