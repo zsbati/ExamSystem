@@ -1,0 +1,4 @@
+ol {
+    list-style-type: decimal; /* Ensures decimal numbering */
+    padding-left: 20px; /* Adjusts padding if necessary */
+}

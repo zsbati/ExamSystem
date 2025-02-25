@@ -1,3 +1,4 @@
+<!-- Template Version: Teacher List -->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -17,27 +18,14 @@
     </div>
     {% endif %}
     
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for teacher in teachers %}
-                <tr>
-                    <td>{{ teacher.user.username }}</td>
-                    <td>{{ teacher.user.email }}</td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="2" class="text-center">No teachers found.</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+    <ol>
+        {% for teacher in teachers %}
+        <li>
+            {{ teacher.user.username }} - {{ teacher.user.email }}
+        </li>
+        {% empty %}
+        <li>No teachers found.</li>
+        {% endfor %}
+    </ol>
 </div>
 {% endblock %}
