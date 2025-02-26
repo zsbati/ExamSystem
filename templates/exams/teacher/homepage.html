@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Homepage</title>
+</head>
+<body>
+    <h1>Welcome to the Teacher Homepage</h1>
+    <div>
+        <a href="{% url 'change_own_password' %}" class="btn btn-warning">Change Password</a>
+        <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        <a href="{% url 'create_exam' %}" class="btn btn-primary">Create Exam</a>
+    </div>
+</body>
+</html>

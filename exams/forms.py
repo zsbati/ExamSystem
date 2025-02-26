@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, SetPasswordForm
-from .models import Student, Teacher
+from .models import Student, Teacher, Exam, Question
 
 
 class TeacherCreationForm(UserCreationForm):
@@ -43,3 +43,15 @@ class ChangeUserPasswordForm(SetPasswordForm):
         super().__init__(*args, **kwargs)
         self.fields['new_password1'].help_text = 'Enter the new password.'
         self.fields['new_password2'].help_text = 'Enter the same password again for verification.'
+
+
+class ExamForm(forms.ModelForm):
+    class Meta:
+        model = Exam
+        fields = ['title', 'description', 'grade']
+
+
+class QuestionForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = ['question_text', 'correct_answer', 'answer_choices']

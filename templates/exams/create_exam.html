@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Exam</title>
+    <script>
+        function addQuestion() {
+            const questionContainer = document.getElementById('questions');
+            const questionCount = questionContainer.children.length;
+            const newQuestion = `
+                <div class='question'>
+                    <label for='question_text_${questionCount}'>Question:</label>
+                    <input type='text' name='question_text_${questionCount}' required>
+                    <label for='correct_answer_${questionCount}'>Correct Answer:</label>
+                    <input type='text' name='correct_answer_${questionCount}' required>
+                    <label for='answer_choices_${questionCount}'>Answer Choices (comma separated):</label>
+                    <input type='text' name='answer_choices_${questionCount}' required>
+                </div>
+            `;
+            questionContainer.insertAdjacentHTML('beforeend', newQuestion);
+        }
+    </script>
+</head>
+<body>
+    <h1>Create Exam</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ exam_form.as_p }}
+        <h2>Questions</h2>
+        <div id='questions'>
+            <div class='question'>
+                <label for='question_text_0'>Question:</label>
+                <input type='text' name='question_text_0' required>
+                <label for='correct_answer_0'>Correct Answer:</label>
+                <input type='text' name='correct_answer_0' required>
+                <label for='answer_choices_0'>Answer Choices (comma separated):</label>
+                <input type='text' name='answer_choices_0' required>
+            </div>
+        </div>
+        <button type='button' onclick='addQuestion()'>Add Another Question</button>
+        <button type="submit">Create Exam</button>
+    </form>
+    <a href="{% url 'teacher_list' %}">Back to Teacher Panel</a>
+</body>
+</html>

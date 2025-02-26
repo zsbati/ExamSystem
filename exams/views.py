@@ -6,8 +6,15 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from django.core.paginator import Paginator
 from django.db.models import Q
-from .forms import StudentCreationForm, TeacherCreationForm, ChangeUserPasswordForm
-from .models import Student, Teacher
+from .forms import StudentCreationForm, TeacherCreationForm, ChangeUserPasswordForm, ExamForm, QuestionForm
+from .models import Student, Teacher, Exam, Question
+
+def superuser_or_teacher_required(view_func):
+    @user_passes_test(lambda u: u.is_superuser or hasattr(u, 'teacher'))
+    def _wrapped_view(request, *args, **kwargs):
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
+
 
 def login_view(request):
     if request.method == 'POST':
@@ -17,12 +24,17 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
-            return redirect('home')
+            print(f"User {user.username} logged in.")  # Debugging statement
+            if user.is_superuser:
+                print("Redirecting to admin home.")  # Debugging statement
+                return redirect('home')  # Redirect to admin home
+            else:
+                print("Redirecting to teacher homepage.")  # Debugging statement
+                return redirect('teacher_homepage')  # Redirect to teacher homepage
         else:
             messages.error(request, 'Invalid username or password.')
     
     return render(request, 'login.html')
-
 @login_required
 def home(request):
     context = {}
@@ -113,7 +125,7 @@ def create_student(request):
 
 @user_passes_test(is_superuser)
 def student_list(request):
-    students = Student.objects.all().select_related('user', 'teacher')
+    students = Student.objects.all().select_related('user', 'teacher').order_by('grade', 'user__username')
     return render(request, 'exams/student/student_list.html', {'students': students})
 
 @user_passes_test(is_superuser)
@@ -176,3 +188,60 @@ def change_own_password(request):
         form = PasswordChangeForm(request.user)
     
     return render(request, 'exams/change_own_password.html', {'form': form})
+
+from django.shortcuts import render, redirect
+from .forms import ExamForm, QuestionForm
+from .models import Exam, Question
+
+@superuser_or_teacher_required
+@login_required
+def create_exam(request):
+    print(f"Create exam accessed by: {request.user.username}")
+    if request.method == 'POST':
+        exam_form = ExamForm(request.POST)
+        print(f"Exam form valid: {exam_form.is_valid()}")
+        if exam_form.is_valid():
+            exam = exam_form.save(commit=False)
+
+            # Check if the user has a Teacher instance
+            if hasattr(request.user, 'teacher'):
+                exam.teacher = request.user.teacher  # Link the exam to the teacher
+            else:
+                # If the user is a superuser, you might want to handle it differently
+                print("No teacher instance found for this user.")  # Debugging statement
+                messages.error(request, "You do not have an associated teacher account.")
+                return redirect('dashboard')  # Redirect to the dashboard or another appropriate view
+
+            exam.save()
+            # Save the questions
+            question_count = len(request.POST.getlist('question_text_0'))
+            for i in range(question_count):
+                question_text = request.POST.get(f'question_text_{i}')
+                correct_answer = request.POST.get(f'correct_answer_{i}')
+                answer_choices = request.POST.get(f'answer_choices_{i}')
+                question = Question(
+                    exam=exam,
+                    question_text=question_text,
+                    correct_answer=correct_answer,
+                    answer_choices=answer_choices.split(',')  # Assuming choices are comma-separated
+                )
+                question.save()
+            return redirect('teacher_list')  # Redirect to the teacher list or exam list
+    else:
+        exam_form = ExamForm()
+    return render(request, 'exams/create_exam.html', {'exam_form': exam_form})
+
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def teacher_homepage(request):
+    return render(request, 'exams/teacher/homepage.html')
+
+@login_required
+def dashboard(request):
+    context = {
+        'teachers': Teacher.objects.all(),
+        'students': Student.objects.all(),
+    }
+    return render(request, 'exams/dashboard.html', context)
