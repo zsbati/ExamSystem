@@ -1,3 +1,5 @@
+{% load custom_filters %}
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -9,28 +11,31 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3>Teachers</h3>
                     <a href="{% url 'create_teacher' %}" class="btn btn-primary btn-sm">Add Teacher</a>
+                    {% if user|is_teacher or user|is_superuser %}
                     <a href="{% url 'create_exam' %}" class="btn btn-primary btn-sm">Create Exam</a>
+                    {% endif %}
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-sm">
                             <thead>
-                                <tr>
-                                    <th>Username</th>
-                                    <th>Email</th>
-                                    <th>Actions</th>
-                                </tr>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                {% for teacher in teachers %}
-                                <tr>
-                                    <td>{{ teacher.user.username }}</td>
-                                    <td>{{ teacher.user.email }}</td>
-                                    <td>
-                                        <a href="{% url 'change_teacher_password' teacher.id %}" class="btn btn-warning btn-sm">Change Password</a>
-                                    </td>
-                                </tr>
-                                {% endfor %}
+                            {% for teacher in teachers %}
+                            <tr>
+                                <td>{{ teacher.user.username }}</td>
+                                <td>{{ teacher.user.email }}</td>
+                                <td>
+                                    <a href="{% url 'change_teacher_password' teacher.id %}"
+                                       class="btn btn-warning btn-sm">Change Password</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -50,27 +55,29 @@
                     <div class="table-responsive">
                         <table class="table table-sm">
                             <thead>
-                                <tr>
-                                    <th>Username</th>
-                                    <th>Grade</th>
-                                    <th>Teacher</th>
-                                    <th>Actions</th>
-                                </tr>
+                            <tr>
+                                <th>Username</th>
+                                <th>Grade</th>
+                                <th>Teacher</th>
+                                <th>Actions</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                {% for student in students %}
-                                <tr>
-                                    <td>{{ student.user.username }}</td>
-                                    <td>{{ student.get_grade_display }}</td>
-                                    <td>{{ student.teacher.user.username }}</td>
-                                    <td>
-                                        <div class="btn-group btn-group-sm">
-                                            <a href="{% url 'change_student_password' student.id %}" class="btn btn-warning">Change Password</a>
-                                            <a href="{% url 'delete_student' student.id %}" class="btn btn-danger">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                {% endfor %}
+                            {% for student in students %}
+                            <tr>
+                                <td>{{ student.user.username }}</td>
+                                <td>{{ student.get_grade_display }}</td>
+                                <td>{{ student.teacher.user.username }}</td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="{% url 'change_student_password' student.id %}"
+                                           class="btn btn-warning">Change Password</a>
+                                        <a href="{% url 'delete_student' student.id %}"
+                                           class="btn btn-danger">Delete</a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -81,7 +88,9 @@
     </div>
     <div class="row">
         <div class="col-md-12 mb-4">
+            {% if user|is_teacher or user|is_superuser %}
             <a href="{% url 'create_exam' %}" class="btn btn-primary btn-sm">Create Exam</a>
+            {% endif %}
         </div>
     </div>
 </div>

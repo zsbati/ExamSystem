@@ -1,3 +1,5 @@
+{% load custom_filters %}
+
 {% extends 'base.html' %}
 
 {% block content %}
@@ -5,14 +7,15 @@
     <h1 class="display-4">Welcome to the Exams App!</h1>
     <p class="lead">
         {% if user.is_authenticated %}
-            Welcome back, {{ user.username }}!
-            {% if user.student %}
-                <br>You are registered as a student in grade {{ user.student.grade }}.
-            {% elif user.teacher %}
-                <br>You are registered as a teacher.
-            {% endif %}
+        Welcome back, {{ user.username }}!
+        {% if user.student %}
+        <br>You are registered as a student in grade {{ user.student.grade }}.
+        {% elif user|is_teacher or user|is_superuser %}
+        <br>You are registered as a teacher.
+        <a href="{% url 'create_exam' %}" class="btn btn-primary btn-sm">Create Exam</a>
+        {% endif %}
         {% else %}
-            Please log in to access your account.
+        Please log in to access your account.
         {% endif %}
     </p>
 </div>
