@@ -19,7 +19,7 @@ class TeacherCreationForm(UserCreationForm):
 
 class StudentCreationForm(UserCreationForm):
     grade = forms.ChoiceField(choices=Student.GRADE_CHOICES)
-    teacher = forms.ModelChoiceField(queryset=Teacher.objects.all())
+    teachers = forms.ModelMultipleChoiceField(queryset=Teacher.objects.all(), required=False)
 
     class Meta(UserCreationForm.Meta):
         model = User
@@ -29,16 +29,17 @@ class StudentCreationForm(UserCreationForm):
         user = super().save(commit=False)
         if commit:
             user.save()
-            Student.objects.create(
+            student = Student.objects.create(
                 user=user,
-                grade=self.cleaned_data['grade'],
-                teacher=self.cleaned_data['teacher']
+                grade=self.cleaned_data['grade']
             )
+            student.teachers.set(self.cleaned_data['teachers'])
         return user
 
 
 class ChangeUserPasswordForm(SetPasswordForm):
     """Form for changing user password without requiring old password"""
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['new_password1'].help_text = 'Enter the new password.'

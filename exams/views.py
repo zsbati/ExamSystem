@@ -53,7 +53,7 @@ def home(request):
         teacher_filter = request.GET.get('teacher', '')
 
         # Query students with filters
-        students = Student.objects.select_related('user', 'teacher').order_by('user__username')
+        students = Student.objects.select_related('user').order_by('user__username')
         teachers = Teacher.objects.select_related('user').order_by('user__username')
 
         if search_query:
@@ -138,7 +138,7 @@ def create_student(request):
 
 @user_passes_test(is_superuser)
 def student_list(request):
-    students = Student.objects.all().select_related('user', 'teacher').order_by('grade', 'user__username')
+    students = Student.objects.all().select_related('user').order_by('grade', 'user__username')
     return render(request, 'exams/student/student_list.html', {'students': students})
 
 
