@@ -1,22 +1,22 @@
-{% load custom_filters %}
-
 <!DOCTYPE html>
+{% load custom_filters %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Test Template</title>
+    <link rel="icon" href="/favicon.avif" type="image/avif">
 </head>
 <body>
-    {% if user|is_teacher %}
-    <p>The user is a teacher.</p>
-    {% else %}
-    <p>The user is not a teacher.</p>
-    {% endif %}
+{% if user|is_teacher %}
+<p>The user is a teacher.</p>
+{% else %}
+<p>The user is not a teacher.</p>
+{% endif %}
 
-    {% if user|is_superuser %}
-    <p>The user is a superuser.</p>
-    {% else %}
-    <p>The user is not a superuser.</p>
-    {% endif %}
+{% if user|is_superuser %}
+<p>The user is a superuser.</p>
+{% else %}
+<p>The user is not a superuser.</p>
+{% endif %}
 </body>
 </html>
