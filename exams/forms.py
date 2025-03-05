@@ -56,3 +56,11 @@ class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
         fields = ['question_text', 'correct_answer', 'answer_choices']
+
+
+class StudentForm(forms.ModelForm):
+    teachers = forms.ModelMultipleChoiceField(queryset=Teacher.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
+
+    class Meta:
+        model = Student
+        fields = ['grade', 'teachers']

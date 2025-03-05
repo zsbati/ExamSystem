@@ -9,6 +9,7 @@ from django.db.models import Q
 from .forms import StudentCreationForm, TeacherCreationForm, ChangeUserPasswordForm, ExamForm, QuestionForm
 from .models import Student, Teacher, Exam, Question
 import logging
+from .forms import StudentForm
 
 logger = logging.getLogger(__name__)
 
@@ -267,3 +268,17 @@ def dashboard(request):
         'students': Student.objects.all(),
     }
     return render(request, 'exams/dashboard.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def edit_student(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Student updated successfully!')
+            return redirect('student_list')
+    else:
+        form = StudentForm(instance=student)
+    return render(request, 'exams/student/edit_student.html', {'form': form, 'student': student})

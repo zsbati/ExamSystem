@@ -4,6 +4,11 @@ from django.contrib.auth.models import User
 from .models import Student, Teacher
 
 
+class TeacherInline(admin.TabularInline):
+    model = Student.teachers.through
+    extra = 1
+
+
 class TeacherAdmin(admin.ModelAdmin):
     list_display = ('user', 'get_email')
     search_fields = ('user__username', 'user__email')
@@ -18,6 +23,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_display = ('user', 'grade', 'get_teachers', 'get_email')
     list_filter = ('grade',)
     search_fields = ('user__username', 'user__email')
+    inlines = [TeacherInline]
 
     def get_teachers(self, obj):
         return ", ".join([teacher.user.username for teacher in obj.teachers.all()])

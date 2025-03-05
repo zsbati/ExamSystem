@@ -7,7 +7,7 @@
         <h2>Student Accounts</h2>
         <a href="{% url 'create_student' %}" class="btn btn-primary">Create New Student</a>
     </div>
-    
+
     {% if messages %}
     <div class="messages">
         {% for message in messages %}
@@ -17,11 +17,12 @@
         {% endfor %}
     </div>
     {% endif %}
-    
+
     <ol>
         {% for student in students %}
         <li>
             {{ student.user.username }} - Grade: {{ student.get_grade_display }} - Teacher: {{ student.teacher }}
+            <a href="{% url 'edit_student' student.id %}">Edit</a> <!-- Add Edit link here -->
         </li>
         {% empty %}
         <li>No students found.</li>
@@ -29,3 +30,4 @@
     </ol>
 </div>
 {% endblock %}
+
