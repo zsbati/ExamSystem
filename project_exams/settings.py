@@ -47,6 +47,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'custom_filters': 'templatetags.custom_filters',
+            },
         },
     },
 ]
@@ -93,5 +96,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Login settings
-LOGIN_REDIRECT_URL = 'home'  # Change this to your home view name
-LOGIN_URL = 'login'  # Change this to your login view name 
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'

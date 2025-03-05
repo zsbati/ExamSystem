@@ -8,6 +8,9 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from .forms import StudentCreationForm, TeacherCreationForm, ChangeUserPasswordForm, ExamForm, QuestionForm
 from .models import Student, Teacher, Exam, Question
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def superuser_or_teacher_required(view_func):
@@ -85,7 +88,7 @@ def home(request):
         context['grade_filter'] = grade_filter
         context['teacher_filter'] = teacher_filter
 
-        return render(request, 'exams/dashboard.html', context)
+        return render(request, 'dashboard.html', context)
 
     return render(request, 'home.html', context)
 
