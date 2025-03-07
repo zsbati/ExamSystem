@@ -16,29 +16,29 @@
                     {% endif %}
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-sm">
-                            <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for teacher in teachers %}
-                            <tr>
-                                <td>{{ teacher.user.username }}</td>
-                                <td>{{ teacher.user.email }}</td>
-                                <td>
-                                    <a href="{% url 'change_teacher_password' teacher.id %}"
-                                       class="btn btn-warning btn-sm">Change Password</a>
-                                </td>
-                            </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for teacher in teachers %}
+                        <tr>
+                            <td>{{ teacher.user.username }}</td>
+                            <td>{{ teacher.user.email }}</td>
+                            <td>{{ teacher.id }}</td>
+                            <td>
+                                <a href="{% url 'change_teacher_password' teacher.id %}" class="btn btn-warning btn-sm">Change
+                                    Password</a>
+                                <a href="{% url 'remove_teacher' teacher.id %}" class="btn btn-danger btn-sm">Remove</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
                     <a href="{% url 'teacher_list' %}" class="btn btn-outline-primary btn-sm">View All Teachers</a>
                 </div>
             </div>

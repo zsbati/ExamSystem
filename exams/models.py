@@ -5,6 +5,7 @@ from django.dispatch import receiver
 
 
 class Teacher(models.Model):
+    objects = None
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -19,6 +20,7 @@ def create_teacher_for_superuser(sender, instance, created, **kwargs):
 
 
 class Student(models.Model):
+    objects = None
     GRADE_CHOICES = [
         (10, '10th Grade'),
         (11, '11th Grade'),
@@ -36,7 +38,7 @@ class Student(models.Model):
 class Exam(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    teacher = models.ForeignKey('Teacher', on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     grade = models.IntegerField(choices=Student.GRADE_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
 

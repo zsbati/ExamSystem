@@ -1,12 +1,10 @@
 from django.urls import path
-from django.contrib.auth import views as auth_views
 from . import views
-from .views import edit_student  # Add this import
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('dashboard/', views.dashboard, name='dashboard'),
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('change-password/', views.change_own_password, name='change_own_password'),
     path('students/', views.student_list, name='student_list'),
@@ -19,4 +17,6 @@ urlpatterns = [
     path('teachers/<int:teacher_id>/change-password/', views.change_teacher_password, name='change_teacher_password'),
     path('exams/create/', views.create_exam, name='create_exam'),
     path('teacher/homepage/', views.teacher_homepage, name='teacher_homepage'),
+    path('remove_teacher/<int:teacher_id>/', views.remove_teacher, name='remove_teacher'),
+    path('test/', views.test_template, name='test_template'),
 ]

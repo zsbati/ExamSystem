@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from .models import Student, Teacher
+from django.shortcuts import redirect, get_object_or_404
+from django.contrib import messages
 
 
 class TeacherInline(admin.TabularInline):
@@ -40,3 +42,10 @@ class StudentAdmin(admin.ModelAdmin):
 
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Teacher)
+
+
+def remove_teacher(request, teacher_id):
+    teacher = get_object_or_404(Teacher, id=teacher_id)
+    teacher.delete()
+    messages.success(request, 'Teacher removed successfully.')
+    return redirect('dashboard')
