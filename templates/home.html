@@ -10,7 +10,7 @@
         <br>You are registered as a student in grade {{ user.student.grade }}.
         {% elif user|is_teacher or user|is_superuser %}
         <br>You are registered as a teacher.
-        <a href="{% url 'create_exam' %}" class="btn btn-primary btn-sm">Create Exam</a>
+        <a href="{% url 'create_exam' %}" class="btn btn-primary" target="_blank">Create Exam</a>
         {% endif %}
         {% else %}
         Please log in to access your account.

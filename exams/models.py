@@ -2,6 +2,10 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django import forms
+
+
+# from .models import Exam
 
 
 class TeacherManager(models.Manager):
@@ -49,6 +53,12 @@ class Exam(models.Model):
 
     def __str__(self):
         return f'{self.title} - Grade {self.grade}'
+
+
+class ExamForm(forms.ModelForm):
+    class Meta:
+        model = Exam
+        fields = ['title', 'description', 'grade']
 
 
 class Question(models.Model):

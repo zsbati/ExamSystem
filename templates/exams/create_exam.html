@@ -12,11 +12,11 @@
             const newQuestion = `
                 <div class='question'>
                     <label for='question_text_${questionCount}'>Question:</label>
-                    <input type='text' name='question_text_${questionCount}' required>
+                    <input type='text' id='question_text_${questionCount}' name='question_text_${questionCount}' required>
                     <label for='correct_answer_${questionCount}'>Correct Answer:</label>
-                    <input type='text' name='correct_answer_${questionCount}' required>
+                    <input type='text' id='correct_answer_${questionCount}' name='correct_answer_${questionCount}' required>
                     <label for='answer_choices_${questionCount}'>Answer Choices (comma separated):</label>
-                    <input type='text' name='answer_choices_${questionCount}' required>
+                    <input type='text' id='answer_choices_${questionCount}' name='answer_choices_${questionCount}' required>
                 </div>
             `;
             questionContainer.insertAdjacentHTML('beforeend', newQuestion);
@@ -25,23 +25,30 @@
 </head>
 <body>
 <h1>Create Exam</h1>
-<form method="POST">
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li
+    {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<form id="examForm" method="POST" action="{% url 'create_exam' %}">
     {% csrf_token %}
     {{ exam_form.as_p }}
     <h2>Questions</h2>
     <div id='questions'>
         <div class='question'>
             <label for='question_text_0'>Question:</label>
-            <input type='text' name='question_text_0' required>
+            <input type='text' id='question_text_0' name='question_text_0' required>
             <label for='correct_answer_0'>Correct Answer:</label>
-            <input type='text' name='correct_answer_0' required>
+            <input type='text' id='correct_answer_0' name='correct_answer_0' required>
             <label for='answer_choices_0'>Answer Choices (comma separated):</label>
-            <input type='text' name='answer_choices_0' required>
+            <input type='text' id='answer_choices_0' name='answer_choices_0' required>
         </div>
     </div>
     <button type='button' onclick='addQuestion()'>Add Another Question</button>
     <button type="submit">Create Exam</button>
 </form>
-<a href="{% url 'teacher_list' %}">Back to Teacher Panel</a>
 </body>
 </html>

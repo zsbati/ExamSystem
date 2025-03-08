@@ -19,4 +19,5 @@ urlpatterns = [
     path('teacher/homepage/', views.teacher_homepage, name='teacher_homepage'),
     path('remove_teacher/<int:teacher_id>/', views.remove_teacher, name='remove_teacher'),
     path('test/', views.test_template, name='test_template'),
+    path('success/', views.exam_success, name='exam_success'),
 ]

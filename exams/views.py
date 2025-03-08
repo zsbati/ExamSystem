@@ -193,7 +193,7 @@ def create_exam(request):
                 exam.teacher = request.user.teacher
             else:
                 messages.error(request, "You do not have an associated teacher account.")
-                return redirect('dashboard')
+                return redirect('create_exam')
             exam.save()
             question_count = len(request.POST.getlist('question_text_0'))
             for i in range(question_count):
@@ -207,10 +207,16 @@ def create_exam(request):
                     answer_choices=answer_choices.split(',')
                 )
                 question.save()
-            return redirect('teacher_list')
+            messages.success(request, 'Exam created successfully!')
+            return redirect('exam_success')
     else:
         exam_form = ExamForm()
     return render(request, 'exams/create_exam.html', {'exam_form': exam_form})
+
+
+@login_required
+def exam_success(request):
+    return render(request, 'exams/exam_success.html')
 
 
 @login_required
