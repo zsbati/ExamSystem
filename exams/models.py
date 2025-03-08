@@ -4,8 +4,13 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+class TeacherManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset()
+
+
 class Teacher(models.Model):
-    objects = None
+    objects = TeacherManager()
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     def __str__(self):
