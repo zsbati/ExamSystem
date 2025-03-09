@@ -448,3 +448,21 @@ Traceback (most recent call last):
     raise ValueError(
 ValueError: The view exams.views._wrapped_view didn't return an HttpResponse object. It returned None instead.
 ERROR 2025-03-08 20:50:10,492 basehttp "GET /exams/create/ HTTP/1.1" 500 68332
+ERROR 2025-03-09 03:05:12,763 log Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 36, in login_view
+    return redirect('student_homepage')
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\shortcuts.py", line 49, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\shortcuts.py", line 180, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'student_homepage' not found. 'student_homepage' is not a valid view function or pattern name.
+ERROR 2025-03-09 03:05:12,774 basehttp "POST /login/?next=/ HTTP/1.1" 500 87254

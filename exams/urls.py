@@ -17,6 +17,7 @@ urlpatterns = [
     path('teachers/<int:teacher_id>/change-password/', views.change_teacher_password, name='change_teacher_password'),
     path('exams/create/', views.create_exam, name='create_exam'),
     path('teacher/homepage/', views.teacher_homepage, name='teacher_homepage'),
+    path('student/homepage/', views.student_homepage, name='student_homepage'),
     path('remove_teacher/<int:teacher_id>/', views.remove_teacher, name='remove_teacher'),
     path('test/', views.test_template, name='test_template'),
     path('success/', views.exam_success, name='exam_success'),

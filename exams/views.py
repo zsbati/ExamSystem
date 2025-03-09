@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth import authenticate, login as auth_login, logout, update_session_auth_hash
 from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.models import User
@@ -7,6 +7,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.core.paginator import Paginator
 from django.db.models import Q
 from .forms import StudentCreationForm, TeacherCreationForm, ChangeUserPasswordForm, ExamForm, QuestionForm, StudentForm
+from .forms import LoginForm
 from .models import Student, Teacher, Exam, Question
 import logging
 
@@ -23,18 +24,23 @@ def superuser_or_teacher_required(view_func):
 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
+        form = LoginForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            auth_login(request, user)
             if user.is_superuser:
                 return redirect('home')
-            else:
+            elif hasattr(user, 'teacher'):
                 return redirect('teacher_homepage')
+            elif hasattr(user, 'student'):
+                return redirect('student_homepage')
+            else:
+                messages.error(request, 'Invalid user type.')
         else:
             messages.error(request, 'Invalid username or password.')
-    return render(request, 'login.html')
+    else:
+        form = LoginForm()
+    return render(request, 'login.html', {'form': form})
 
 
 @login_required
@@ -217,6 +223,13 @@ def create_exam(request):
 @login_required
 def exam_success(request):
     return render(request, 'exams/exam_success.html')
+
+
+@login_required
+def student_homepage(request):
+    # Add any necessary context or data to pass to the template
+    context = {}
+    return render(request, 'exams/student/homepage.html', context)
 
 
 @login_required
