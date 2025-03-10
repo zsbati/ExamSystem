@@ -1,12 +1,7 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load custom_filters %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Test Template</title>
-    <link rel="icon" href="/favicon.avif" type="image/avif">
-</head>
-<body>
+
+{% block content %}
 {% if user|is_teacher %}
 <p>The user is a teacher.</p>
 {% else %}
@@ -18,5 +13,4 @@
 {% else %}
 <p>The user is not a superuser.</p>
 {% endif %}
-</body>
-</html>
+{% endblock %}
