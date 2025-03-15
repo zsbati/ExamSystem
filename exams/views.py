@@ -176,16 +176,20 @@ def change_teacher_password(request, teacher_id):
 
 @login_required
 def change_own_password(request):
+    next_url = request.GET.get('next', 'home')
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)
             messages.success(request, 'Your password was successfully updated!')
-            return redirect('home')
+            return redirect(next_url)  # redirect to what was in "next"
     else:
         form = PasswordChangeForm(request.user)
-    return render(request, 'exams/change_own_password.html', {'form': form})
+
+    return render(request, 'exams/change_own_password.html', {
+        'form': form
+    })
 
 
 @superuser_or_teacher_required

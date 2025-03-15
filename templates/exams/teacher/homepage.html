@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Homepage</title>
-</head>
-<body>
-    <h1>Welcome to the Teacher Homepage</h1>
-    <div>
-        <a href="{% url 'change_own_password' %}" class="btn btn-warning">Change Password</a>
-        <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+{% extends 'base.html' %}
+
+{% block title %}Teacher Homepage{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Welcome to the Teacher Homepage, {{ user.username }}!</h1>
+    <div class="mt-3">
         <a href="{% url 'create_exam' %}" class="btn btn-primary" target="_blank">Create Exam</a>
+        <!-- Add more teacher-specific links or content here -->
     </div>
-</body>
-</html>
+</div>
+{% endblock %}
