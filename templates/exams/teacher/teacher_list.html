@@ -8,8 +8,8 @@
         <a href="{% url 'create_teacher' %}" class="btn btn-primary btn-sm">Create New Teacher</a>
         <a href="{% url 'create_exam' %}" class="btn btn-primary btn-sm">Create Exam</a>
     </div>
-    
-    {% if messages %}   
+
+    {% if messages %}
     <div class="messages">
         {% for message in messages %}
         <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
@@ -18,11 +18,12 @@
         {% endfor %}
     </div>
     {% endif %}
-    
+
     <ol>
         {% for teacher in teachers %}
         <li>
             {{ teacher.user.username }} - {{ teacher.user.email }}
+            <a href="{% url 'teacher_exams' teacher.id %}" class="btn btn-info btn-sm">View Exams</a>
         </li>
         {% empty %}
         <li>No teachers found.</li>

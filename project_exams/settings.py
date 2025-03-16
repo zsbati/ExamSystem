@@ -99,7 +99,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 
-LOGGING = {
+'''LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
@@ -124,6 +124,42 @@ LOGGING = {
         'django': {
             'handlers': ['file'],
             'level': 'ERROR',
+            'propagate': True,
+        },
+    },
+}'''
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'debug_file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'django_debug.log'),
+            'formatter': 'verbose',
+        },
+        'error_file': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'django_error.log'),
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['debug_file', 'error_file'],
+            'level': 'DEBUG',
             'propagate': True,
         },
     },

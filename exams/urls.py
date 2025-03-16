@@ -23,5 +23,6 @@ urlpatterns = [
     path('success/', views.exam_success, name='exam_success'),
     path('my-exams/', views.my_exams, name='my_exams'),
     path('exam/<int:exam_id>/', views.exam_detail, name='exam_detail'),
-    path('exam/<int:exam_id>/', views.exam_detail, name='exam_detail'),
+    path('teacher/<int:teacher_id>/exams/', views.teacher_exams, name='teacher_exams'),
+    path('teacher/list/', views.teacher_list, name='teacher_list'),
 ]

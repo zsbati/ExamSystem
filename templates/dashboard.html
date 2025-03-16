@@ -94,4 +94,45 @@
         </div>
     </div>
 </div>
+
+<!-- Exams Section -->
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3>Exams</h3>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Grade</th>
+                        <th>Created At</th>
+                        <th>Teacher</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for exam in exams %}
+                    <tr>
+                        <td>{{ exam.title }}</td>
+                        <td>{{ exam.description }}</td>
+                        <td>{{ exam.grade }}</td>
+                        <td>{{ exam.created_at }}</td>
+                        <td>{{ exam.teacher.user.username }}</td>
+                        <td>
+                            <a href="{% url 'exam_detail' exam.id %}" class="btn btn-info btn-sm">View</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{% url 'my_exams' %}" class="btn btn-outline-primary btn-sm">View All My Exams</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}

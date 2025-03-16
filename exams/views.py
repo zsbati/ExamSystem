@@ -241,15 +241,6 @@ def teacher_homepage(request):
     return render(request, 'exams/teacher/homepage.html')
 
 
-@login_required
-def dashboard(request):
-    context = {
-        'teachers': Teacher.objects.all(),
-        'students': Student.objects.all(),
-    }
-    return render(request, 'dashboard.html', context)
-
-
 def test_template(request):
     return render(request, 'test.html')
 
@@ -285,11 +276,20 @@ def my_exams(request):
     return render(request, 'exams/my_exams.html', {'exams': exams})
 
 
-@login_required
-@superuser_or_teacher_required
 def exam_detail(request, exam_id):
-    exam = get_object_or_404(Exam, id=exam_id, teacher=request.user.teacher)
-    return render(request, 'exams/exam_detail.html', {'exam': exam})
+    # Superusers can view any exam
+    if request.user.is_superuser:
+        exam = get_object_or_404(Exam, id=exam_id)
+    else:
+        # Teachers can only view their own exams
+        exam = get_object_or_404(Exam, id=exam_id, teacher=request.user.teacher)
+
+    context = {
+        'exam': exam,
+        'questions': exam.questions.all(),  # Assuming related_name is 'questions'
+    }
+
+    return render(request, 'exams/exam_detail.html', context)
 
 
 @login_required
@@ -301,7 +301,35 @@ def teacher_homepage(request):
 
 @login_required
 @superuser_or_teacher_required
-def exam_detail(request, exam_id):
-    exam = get_object_or_404(Exam, id=exam_id, teacher=request.user.teacher)
-    questions = exam.questions.all()  # Fetch related questions
-    return render(request, 'exams/exam_detail.html', {'exam': exam, 'questions': questions})
+def dashboard(request):
+    teachers = Teacher.objects.all()
+    students = Student.objects.all()
+
+    if request.user.is_superuser:
+        exams = Exam.objects.all()
+        logger.debug("Superuser detected. Fetching all exams.")
+    else:
+        exams = Exam.objects.filter(teacher=request.user.teacher)
+        logger.debug(f"Teacher detected. Fetching exams for teacher: {request.user.teacher.user.username}")
+
+    context = {
+        'teachers': teachers,
+        'students': students,
+        'exams': exams,
+    }
+
+    return render(request, 'exams/dashboard.html', context)
+
+
+@login_required
+@superuser_or_teacher_required
+def teacher_exams(request, teacher_id):
+    teacher = Teacher.objects.get(id=teacher_id)
+    exams = Exam.objects.filter(teacher=teacher)
+
+    context = {
+        'teacher': teacher,
+        'exams': exams,
+    }
+
+    return render(request, 'exams/teacher/teacher_exams.html', context)

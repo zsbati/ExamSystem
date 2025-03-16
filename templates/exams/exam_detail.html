@@ -2,6 +2,7 @@
 
 {% block content %}
 <h2>{{ exam.title }}</h2>
+<p>{{ exam.teacher.user.username }}</p>
 <p><strong>Description:</strong> {{ exam.description }}</p>
 <p><strong>Grade:</strong> {{ exam.grade }}</p>
 <p><strong>Created At:</strong> {{ exam.created_at }}</p>

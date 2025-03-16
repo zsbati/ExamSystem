@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Exams for {{ teacher.user.username }}</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Grade</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for exam in exams %}
+        <tr>
+            <td>{{ exam.title }}</td>
+            <td>{{ exam.description }}</td>
+            <td>{{ exam.grade }}</td>
+            <td>{{ exam.created_at }}</td>
+            <td>
+                <a href="{% url 'exam_detail' exam.id %}" class="btn btn-info btn-sm">View</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'teacher_list' %}" class="btn btn-outline-primary btn-sm">Back to Teacher List</a>
+</div>
+{% endblock %}
