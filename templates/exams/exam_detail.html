@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ exam.title }}</h2>
+<p><strong>Description:</strong> {{ exam.description }}</p>
+<p><strong>Grade:</strong> {{ exam.grade }}</p>
+<p><strong>Created At:</strong> {{ exam.created_at }}</p>
+
+<h3>Questions</h3>
+<ul>
+    {% for question in questions %}
+    <li>
+        <p><strong>Question:</strong> {{ question.question_text }}</p>
+        <p><strong>Correct Answer:</strong> {{ question.correct_answer }}</p>
+        <p><strong>Answer Choices:</strong></p>
+        <ul>
+            {% for choice in question.answer_choices %}
+            <li>{{ choice }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'my_exams' %}">Back to My Exams</a>
+{% endblock %}

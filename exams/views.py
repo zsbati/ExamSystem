@@ -242,7 +242,6 @@ def teacher_homepage(request):
 
 
 @login_required
-@login_required
 def dashboard(request):
     context = {
         'teachers': Teacher.objects.all(),
@@ -277,3 +276,32 @@ def remove_teacher(request, teacher_id):
     user.delete()
     messages.success(request, 'Teacher removed successfully.')
     return redirect('dashboard')
+
+
+@login_required
+@superuser_or_teacher_required
+def my_exams(request):
+    exams = Exam.objects.filter(teacher=request.user.teacher)
+    return render(request, 'exams/my_exams.html', {'exams': exams})
+
+
+@login_required
+@superuser_or_teacher_required
+def exam_detail(request, exam_id):
+    exam = get_object_or_404(Exam, id=exam_id, teacher=request.user.teacher)
+    return render(request, 'exams/exam_detail.html', {'exam': exam})
+
+
+@login_required
+@superuser_or_teacher_required
+def teacher_homepage(request):
+    exams = Exam.objects.filter(teacher=request.user.teacher)
+    return render(request, 'exams/teacher/homepage.html', {'exams': exams})
+
+
+@login_required
+@superuser_or_teacher_required
+def exam_detail(request, exam_id):
+    exam = get_object_or_404(Exam, id=exam_id, teacher=request.user.teacher)
+    questions = exam.questions.all()  # Fetch related questions
+    return render(request, 'exams/exam_detail.html', {'exam': exam, 'questions': questions})

@@ -10,4 +10,10 @@
         <!-- Add more teacher-specific links or content here -->
     </div>
 </div>
+<h3>My Exams</h3>
+<ul>
+    {% for exam in exams %}
+    <li><a href="{% url 'exam_detail' exam.id %}">{{ exam.title }}</a> - {{ exam.created_at }}</li>
+    {% endfor %}
+</ul>
 {% endblock %}
