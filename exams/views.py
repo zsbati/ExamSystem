@@ -78,6 +78,10 @@ def home(request):
         context['grade_filter'] = grade_filter
         context['teacher_filter'] = teacher_filter
         return render(request, 'dashboard.html', context)
+    elif hasattr(request.user, 'teacher'):
+        return redirect('teacher_homepage')
+    elif hasattr(request.user, 'student'):
+        return redirect('student_homepage')
     return render(request, 'home.html', context)
 
 

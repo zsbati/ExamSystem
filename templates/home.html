@@ -7,10 +7,13 @@
         {% if user.is_authenticated %}
         Welcome back, {{ user.username }}!
         {% if user.student %}
-        <br>You are registered as a student in grade {{ user.student.grade }}.
+        <script>
+            window.location.href = "{% url 'student_homepage' %}";
+        </script>
         {% elif user|is_teacher or user|is_superuser %}
-        <br>You are registered as a teacher.
-        <a href="{% url 'create_exam' %}" class="btn btn-primary" target="_blank">Create Exam</a>
+        <script>
+            window.location.href = "{% url 'teacher_homepage' %}";
+        </script>
         {% endif %}
         {% else %}
         Please log in to access your account.
