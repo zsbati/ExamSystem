@@ -47,42 +47,48 @@ def login_view(request):
 def home(request):
     context = {}
     if request.user.is_superuser:
-        search_query = request.GET.get('search', '')
-        grade_filter = request.GET.get('grade', '')
-        teacher_filter = request.GET.get('teacher', '')
-        students = Student.objects.select_related('user').order_by('user__username')
-        teachers = Teacher.objects.select_related('user').order_by('user__username')
-        if search_query:
-            students = students.filter(
-                Q(user__username__icontains=search_query) |
-                Q(user__email__icontains=search_query) |
-                Q(teacher__user__username__icontains=search_query)
-            )
-            teachers = teachers.filter(
-                Q(user__username__icontains=search_query) |
-                Q(user__email__icontains=search_query)
-            )
-        if grade_filter:
-            students = students.filter(grade=grade_filter)
-        if teacher_filter:
-            students = students.filter(teacher_id=teacher_filter)
-        student_paginator = Paginator(students, 10)
-        teacher_paginator = Paginator(teachers, 10)
-        student_page = request.GET.get('student_page', 1)
-        teacher_page = request.GET.get('teacher_page', 1)
-        context['students'] = student_paginator.get_page(student_page)
-        context['teachers'] = teacher_paginator.get_page(teacher_page)
-        context['grades'] = dict(Student.GRADE_CHOICES)
-        context['all_teachers'] = Teacher.objects.all()
-        context['search_query'] = search_query
-        context['grade_filter'] = grade_filter
-        context['teacher_filter'] = teacher_filter
+        context = get_superuser_context(request)
         return render(request, 'dashboard.html', context)
     elif hasattr(request.user, 'teacher'):
         return redirect('teacher_homepage')
     elif hasattr(request.user, 'student'):
         return redirect('student_homepage')
     return render(request, 'home.html', context)
+
+
+def get_superuser_context(request):
+    search_query = request.GET.get('search', '')
+    grade_filter = request.GET.get('grade', '')
+    teacher_filter = request.GET.get('teacher', '')
+    students = Student.objects.select_related('user').order_by('user__username')
+    teachers = Teacher.objects.select_related('user').order_by('user__username')
+    if search_query:
+        students = students.filter(
+            Q(user__username__icontains=search_query) |
+            Q(user__email__icontains=search_query) |
+            Q(teacher__user__username__icontains=search_query)
+        )
+        teachers = teachers.filter(
+            Q(user__username__icontains=search_query) |
+            Q(user__email__icontains=search_query)
+        )
+    if grade_filter:
+        students = students.filter(grade=grade_filter)
+    if teacher_filter:
+        students = students.filter(teacher_id=teacher_filter)
+    student_paginator = Paginator(students, 10)
+    teacher_paginator = Paginator(teachers, 10)
+    student_page = request.GET.get('student_page', 1)
+    teacher_page = request.GET.get('teacher_page', 1)
+    return {
+        'students': student_paginator.get_page(student_page),
+        'teachers': teacher_paginator.get_page(teacher_page),
+        'grades': dict(Student.GRADE_CHOICES),
+        'all_teachers': Teacher.objects.all(),
+        'search_query': search_query,
+        'grade_filter': grade_filter,
+        'teacher_filter': teacher_filter,
+    }
 
 
 def logout_view(request):
@@ -200,32 +206,40 @@ def change_own_password(request):
 @login_required
 def create_exam(request):
     if request.method == 'POST':
-        exam_form = ExamForm(request.POST)
-        if exam_form.is_valid():
-            exam = exam_form.save(commit=False)
-            if hasattr(request.user, 'teacher'):
-                exam.teacher = request.user.teacher
-            else:
-                messages.error(request, "You do not have an associated teacher account.")
-                return redirect('create_exam')
-            exam.save()
-            question_count = len(request.POST.getlist('question_text_0'))
-            for i in range(question_count):
-                question_text = request.POST.get(f'question_text_{i}')
-                correct_answer = request.POST.get(f'correct_answer_{i}')
-                answer_choices = request.POST.get(f'answer_choices_{i}')
-                question = Question(
-                    exam=exam,
-                    question_text=question_text,
-                    correct_answer=correct_answer,
-                    answer_choices=answer_choices.split(',')
-                )
-                question.save()
-            messages.success(request, 'Exam created successfully!')
-            return redirect('exam_success')
+        return handle_exam_post_request(request)
     else:
         exam_form = ExamForm()
     return render(request, 'exams/create_exam.html', {'exam_form': exam_form})
+
+
+def handle_exam_post_request(request):
+    exam_form = ExamForm(request.POST)
+    if exam_form.is_valid():
+        exam = exam_form.save(commit=False)
+        if hasattr(request.user, 'teacher'):
+            exam.teacher = request.user.teacher
+        else:
+            messages.error(request, "You do not have an associated teacher account.")
+            return redirect('create_exam')
+        exam.save()
+        save_exam_questions(request, exam)
+        messages.success(request, 'Exam created successfully!')
+        return redirect('exam_success')
+
+
+def save_exam_questions(request, exam):
+    question_count = len(request.POST.getlist('question_text_0'))
+    for i in range(question_count):
+        question_text = request.POST.get(f'question_text_{i}')
+        correct_answer = request.POST.get(f'correct_answer_{i}')
+        answer_choices = request.POST.get(f'answer_choices_{i}')
+        question = Question(
+            exam=exam,
+            question_text=question_text,
+            correct_answer=correct_answer,
+            answer_choices=answer_choices.split(',')
+        )
+        question.save()
 
 
 @login_required
@@ -253,14 +267,18 @@ def test_template(request):
 def edit_student(request, student_id):
     student = get_object_or_404(Student, id=student_id)
     if request.method == 'POST':
-        form = StudentForm(request.POST, instance=student)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Student updated successfully!')
-            return redirect('student_list')
+        return handle_student_post_request(request, student)
     else:
         form = StudentForm(instance=student)
     return render(request, 'exams/student/edit_student.html', {'form': form, 'student': student})
+
+
+def handle_student_post_request(request, student):
+    form = StudentForm(request.POST, instance=student)
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Student updated successfully!')
+        return redirect('student_list')
 
 
 @user_passes_test(is_superuser)
@@ -281,19 +299,19 @@ def my_exams(request):
 
 
 def exam_detail(request, exam_id):
-    # Superusers can view any exam
-    if request.user.is_superuser:
-        exam = get_object_or_404(Exam, id=exam_id)
-    else:
-        # Teachers can only view their own exams
-        exam = get_object_or_404(Exam, id=exam_id, teacher=request.user.teacher)
-
+    exam = get_exam_for_user(request, exam_id)
     context = {
         'exam': exam,
         'questions': exam.questions.all(),  # Assuming related_name is 'questions'
     }
-
     return render(request, 'exams/exam_detail.html', context)
+
+
+def get_exam_for_user(request, exam_id):
+    if request.user.is_superuser:
+        return get_object_or_404(Exam, id=exam_id)
+    else:
+        return get_object_or_404(Exam, id=exam_id, teacher=request.user.teacher)
 
 
 @login_required
