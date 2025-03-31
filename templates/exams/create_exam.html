@@ -20,11 +20,11 @@
     <div id='questions'>
         <div class='question'>
             <label for='question_text_0'>Question:</label>
-            <input type='text' id='question_text_0' name='question_text_0' required>
+            <input type='text' id='question_text_0' name='question_text' required>
             <label for='correct_answer_0'>Correct Answer:</label>
-            <input type='text' id='correct_answer_0' name='correct_answer_0' required>
+            <input type='text' id='correct_answer_0' name='correct_answer' required>
             <label for='answer_choices_0'>Answer Choices (comma separated):</label>
-            <input type='text' id='answer_choices_0' name='answer_choices_0' required>
+            <input type='text' id='answer_choices_0' name='answer_choices' required>
         </div>
     </div>
     <button type='button' onclick='addQuestion()'>Add Another Question</button>
@@ -38,11 +38,11 @@
         const newQuestion = `
             <div class='question'>
                 <label for='question_text_${questionCount}'>Question:</label>
-                <input type='text' id='question_text_${questionCount}' name='question_text_${questionCount}' required>
+                <input type='text' id='question_text_${questionCount}' name='question_text' required>
                 <label for='correct_answer_${questionCount}'>Correct Answer:</label>
-                <input type='text' id='correct_answer_${questionCount}' name='correct_answer_${questionCount}' required>
+                <input type='text' id='correct_answer_${questionCount}' name='correct_answer' required>
                 <label for='answer_choices_${questionCount}'>Answer Choices (comma separated):</label>
-                <input type='text' id='answer_choices_${questionCount}' name='answer_choices_${questionCount}' required>
+                <input type='text' id='answer_choices_${questionCount}' name='answer_choices' required>
             </div>
         `;
         questionContainer.insertAdjacentHTML('beforeend', newQuestion);

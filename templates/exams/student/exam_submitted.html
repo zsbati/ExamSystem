@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ exam.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ exam.title }}</h2>
+    <p>{{ exam.description }}</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Question</th>
+                <th>Your Answer</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for form in formset %}
+            <tr>
+                <td>{{ form.instance.question.question_text }}</td>
+                <td>{{ form.answer }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Submit Answers</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,13 +1,7 @@
 {% extends 'base.html' %}
-
-{% block title %}Student Homepage{% endblock %}
-
 {% block content %}
-<div class="container">
-    <h2>Welcome, {{ user.username }}!</h2>
-    <p>This is the student homepage.</p>
-    <!-- Add any additional content or links for students -->
-    <h2>Your Exams</h2>
+<div class="container mt-4">
+    <h2>Available Exams</h2>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -24,7 +18,6 @@
             <td>{{ exam.description }}</td>
             <td>{{ exam.teacher.user.username }}</td>
             <td>{{ exam.created_at }}</td>
-            <td><a href="{% url 'take_exam' exam.id %}" class="btn btn-primary">Take Exam</a></td>
         </tr>
         {% endfor %}
         </tbody>

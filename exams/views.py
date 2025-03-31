@@ -6,9 +6,10 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.forms import modelformset_factory
 from .forms import StudentCreationForm, TeacherCreationForm, ChangeUserPasswordForm, ExamForm, QuestionForm, StudentForm
-from .forms import LoginForm
-from .models import Student, Teacher, Exam, Question
+from .forms import LoginForm, StudentAnswerForm
+from .models import Student, Teacher, Exam, Question, StudentAnswer
 import logging
 
 logger = logging.getLogger(__name__)
@@ -212,6 +213,35 @@ def create_exam(request):
     return render(request, 'exams/create_exam.html', {'exam_form': exam_form})
 
 
+def save_exam_questions(request, exam):
+    question_texts = request.POST.getlist("question_text")
+    correct_answers = request.POST.getlist("correct_answer")
+    answer_choices_list = request.POST.getlist("answer_choices")
+
+    logger.debug(f"Number of questions: {len(question_texts)}")
+
+    for i in range(len(question_texts)):
+        question_text = question_texts[i]
+        correct_answer = correct_answers[i]
+        answer_choices = answer_choices_list[i]
+
+        logger.debug(
+            f"Question {i}: {question_text}, Correct Answer: {correct_answer}, Answer Choices: {answer_choices}")
+
+        if question_text and correct_answer and answer_choices:
+            question = Question(
+                exam=exam,
+                question_text=question_text,
+                correct_answer=correct_answer,
+                answer_choices=answer_choices.split(',')
+            )
+            question.save()
+            logger.debug(f"Saved Question {i} with ID {question.id}")
+        else:
+            logger.warning(
+                f"Skipping Question {i} due to missing data: {question_text}, {correct_answer}, {answer_choices}")
+
+
 def handle_exam_post_request(request):
     exam_form = ExamForm(request.POST)
     if exam_form.is_valid():
@@ -225,21 +255,10 @@ def handle_exam_post_request(request):
         save_exam_questions(request, exam)
         messages.success(request, 'Exam created successfully!')
         return redirect('exam_success')
-
-
-def save_exam_questions(request, exam):
-    question_count = len(request.POST.getlist('question_text_0'))
-    for i in range(question_count):
-        question_text = request.POST.get(f'question_text_{i}')
-        correct_answer = request.POST.get(f'correct_answer_{i}')
-        answer_choices = request.POST.get(f'answer_choices_{i}')
-        question = Question(
-            exam=exam,
-            question_text=question_text,
-            correct_answer=correct_answer,
-            answer_choices=answer_choices.split(',')
-        )
-        question.save()
+    else:
+        logger.error("Exam form is not valid.")
+        logger.error(exam_form.errors)
+        messages.error(request, 'There was an error creating the exam. Please check the form for errors.')
 
 
 @login_required
@@ -249,9 +268,12 @@ def exam_success(request):
 
 @login_required
 def student_homepage(request):
-    # Add any necessary context or data to pass to the template
-    context = {}
-    return render(request, 'exams/student/homepage.html', context)
+    if hasattr(request.user, 'student'):
+        student = request.user.student
+        exams = student.get_accessible_exams()
+        return render(request, 'exams/student/homepage.html', {'exams': exams})
+    else:
+        return redirect('home')
 
 
 @login_required
@@ -355,3 +377,69 @@ def teacher_exams(request, teacher_id):
     }
 
     return render(request, 'exams/teacher/teacher_exams.html', context)
+
+
+@login_required
+def student_exams(request):
+    if hasattr(request.user, 'student'):
+        student = request.user.student
+        exams = student.get_accessible_exams()
+        return render(request, 'exams/student_exams.html', {'exams': exams})
+    else:
+        return redirect('home')
+
+
+@login_required
+def take_exam(request, exam_id):
+    if hasattr(request.user, 'student'):
+        student = request.user.student
+        exam = get_object_or_404(Exam, id=exam_id, grade=student.grade, teacher__in=student.teachers.all())
+
+        # Debug: Print exam and student info
+        logger.debug(f"Exam: {exam}")
+        logger.debug(f"Student: {student}")
+
+        # Check if the student has already taken the exam
+        if StudentAnswer.objects.filter(student=student, question__exam=exam).exists():
+            return redirect('exam_already_taken')
+
+        # Create a formset for the student's answers
+        StudentAnswerFormSet = modelformset_factory(StudentAnswer, form=StudentAnswerForm, extra=0, can_delete=False)
+
+        if request.method == 'POST':
+            formset = StudentAnswerFormSet(request.POST)
+            if formset.is_valid():
+                for form, question in zip(formset, exam.questions.all()):
+                    answer = form.save(commit=False)
+                    answer.student = student
+                    answer.question = question
+                    answer.save()
+                return redirect('exam_submitted')
+        else:
+            questions = exam.questions.all()
+
+            # Debug: Print questions
+            for question in questions:
+                logger.debug(f"Question: {question.question_text}")
+
+            initial_data = [{'question': q, 'student': student} for q in questions]
+            formset = StudentAnswerFormSet(queryset=StudentAnswer.objects.none(), initial=initial_data)
+
+            # Debug: Print formset
+            for form in formset:
+                logger.debug(f"Form: {form}")
+
+        return render(request, 'exams/student/take_exam.html',
+                      {'exam': exam, 'formset': formset, 'questions': questions})
+    else:
+        return redirect('home')
+
+
+@login_required
+def exam_submitted(request):
+    return render(request, 'exams/student/exam_submitted.html')
+
+
+@login_required
+def exam_already_taken(request):
+    return render(request, 'exams/student/exam_already_taken.html')

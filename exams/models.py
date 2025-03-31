@@ -43,6 +43,9 @@ class Student(models.Model):
     def __str__(self):
         return f"{self.user.username} - Grade {self.grade}"
 
+    def get_accessible_exams(self):
+        return Exam.objects.filter(grade=self.grade, teacher__in=self.teachers.all())
+
 
 class Exam(models.Model):
     title = models.CharField(max_length=200)
@@ -53,6 +56,9 @@ class Exam(models.Model):
 
     def __str__(self):
         return f'{self.title} - Grade {self.grade}'
+
+    def is_accessible_to_student(self, student):
+        return self.grade == student.grade and self.teacher in student.teachers.all()
 
 
 class ExamForm(forms.ModelForm):
@@ -69,3 +75,13 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question_text
+
+
+class StudentAnswer(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    answer = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.student.user.username} - {self.question.question_text}: {self.answer}"
