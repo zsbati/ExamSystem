@@ -395,16 +395,13 @@ def take_exam(request, exam_id):
         student = request.user.student
         exam = get_object_or_404(Exam, id=exam_id, grade=student.grade, teacher__in=student.teachers.all())
 
-        # Debug: Print exam and student info
-        logger.debug(f"Exam: {exam}")
-        logger.debug(f"Student: {student}")
-
         # Check if the student has already taken the exam
         if StudentAnswer.objects.filter(student=student, question__exam=exam).exists():
             return redirect('exam_already_taken')
 
         # Create a formset for the student's answers
-        StudentAnswerFormSet = modelformset_factory(StudentAnswer, form=StudentAnswerForm, extra=0, can_delete=False)
+        StudentAnswerFormSet = modelformset_factory(StudentAnswer, form=StudentAnswerForm,
+                                                    extra=len(exam.questions.all()), can_delete=False)
 
         if request.method == 'POST':
             formset = StudentAnswerFormSet(request.POST)
@@ -420,17 +417,26 @@ def take_exam(request, exam_id):
 
             # Debug: Print questions
             for question in questions:
-                logger.debug(f"Question: {question.question_text}")
+                print(f"Question: {question.question_text}")
 
-            initial_data = [{'question': q, 'student': student} for q in questions]
+            initial_data = [{'question': q.id, 'student': student.id} for q in questions]
+            print(f"Initial Data: {initial_data}")
             formset = StudentAnswerFormSet(queryset=StudentAnswer.objects.none(), initial=initial_data)
 
-            # Debug: Print formset
+            # Debug: Print formset data
             for form in formset:
-                logger.debug(f"Form: {form}")
+                print(f"Form: {form.initial}")
 
-        return render(request, 'exams/student/take_exam.html',
-                      {'exam': exam, 'formset': formset, 'questions': questions})
+        # Debug: Print context variables
+        print(f"Context - Exam: {exam}")
+        print(f"Context - Formset: {formset.management_form}")
+        print(f"Context - Questions: {questions}")
+
+        return render(request, 'exams/student/take_exam.html', {
+            'exam': exam,
+            'formset': formset,
+            'questions': questions
+        })
     else:
         return redirect('home')
 

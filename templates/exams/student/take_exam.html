@@ -22,6 +22,9 @@
             <tr>
                 <td>{{ question.question_text }}</td>
                 <td>{{ form.answer }}</td>
+                {% empty %}
+            <tr>
+                <td colspan="2">No questions available for this exam.</td>
             </tr>
             {% endfor %}
             </tbody>
