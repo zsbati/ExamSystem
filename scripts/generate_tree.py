@@ -16,5 +16,5 @@ def generate_tree(directory, level=3, indent=""):
 
 
 if __name__ == "__main__":
-    project_root = "C:\\Users\\35196\\password\\exams"
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
     generate_tree(project_root)
