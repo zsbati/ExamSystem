@@ -8,8 +8,8 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 from django.forms import modelformset_factory
 from .forms import StudentCreationForm, TeacherCreationForm, ChangeUserPasswordForm, ExamForm, QuestionForm, StudentForm
-from .forms import LoginForm, StudentAnswerForm
-from .models import Student, Teacher, Exam, Question, StudentAnswer
+from .forms import LoginForm, StudentAnswerForm, GradeForm
+from .models import Student, Teacher, Exam, Question, StudentAnswer, ExamResult
 import logging
 
 logger = logging.getLogger(__name__)
@@ -449,3 +449,54 @@ def exam_submitted(request):
 @login_required
 def exam_already_taken(request):
     return render(request, 'exams/student/exam_already_taken.html')
+
+
+@login_required
+@user_passes_test(lambda u: hasattr(u, 'teacher'))
+def view_student_answers(request, exam_id):
+    exam = get_object_or_404(Exam, id=exam_id, teacher=request.user.teacher)
+    student_answers = StudentAnswer.objects.filter(question__exam=exam).select_related('student')
+    return render(request, 'exams/view_student_answers.html', {'exam': exam, 'student_answers': student_answers})
+
+
+@login_required
+@user_passes_test(lambda u: hasattr(u, 'teacher'))
+def grade_exam(request, exam_id):
+    exam = get_object_or_404(Exam, id=exam_id, teacher=request.user.teacher)
+    student_answers = StudentAnswer.objects.filter(question__exam=exam).select_related('student')
+    if request.method == 'POST':
+        form = GradeForm(request.POST, student_answers=student_answers)
+        if form.is_valid():
+            total_grades = {}
+            # Save grades
+            for answer in student_answers:
+                grade = form.cleaned_data.get(f'grade_{answer.id}')
+                answer.grade = grade
+                answer.save()
+                if answer.student.id not in total_grades:
+                    total_grades[answer.student.id] = 0
+                total_grades[answer.student.id] += grade
+
+            # Save total grades in ExamResult
+            for student_id, total_grade in total_grades.items():
+                student = get_object_or_404(Student, id=student_id)
+                exam_result, created = ExamResult.objects.get_or_create(student=student, exam=exam)
+                exam_result.total_grade = total_grade
+                exam_result.save()
+
+            messages.success(request, 'Grades saved successfully!')
+            return redirect('view_student_answers', exam_id=exam.id)
+    else:
+        form = GradeForm(student_answers=student_answers)
+    return render(request, 'exams/grade_exam.html', {'exam': exam, 'student_answers': student_answers, 'form': form})
+
+
+@login_required
+def student_homepage(request):
+    if hasattr(request.user, 'student'):
+        student = request.user.student
+        exams = student.get_accessible_exams()
+        exam_results = ExamResult.objects.filter(student=student)
+        return render(request, 'exams/student/homepage.html', {'exams': exams, 'exam_results': exam_results})
+    else:
+        return redirect('home')

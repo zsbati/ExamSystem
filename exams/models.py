@@ -81,7 +81,17 @@ class StudentAnswer(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     answer = models.CharField(max_length=200)
+    grade = models.IntegerField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.student.user.username} - {self.question.question_text}: {self.answer}"
+
+
+class ExamResult(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
+    total_grade = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.student.user.username} - {self.exam.title}: {self.total_grade}"

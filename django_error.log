@@ -1,0 +1,40 @@
+ERROR 2025-04-06 23:26:48,107 log Internal Server Error: /exam/15/grade/
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 483, in grade_exam
+    exam_result, created = ExamResult.objects.get_or_create(student=student, exam=exam)
+NameError: name 'ExamResult' is not defined
+ERROR 2025-04-06 23:26:48,111 basehttp "POST /exam/15/grade/ HTTP/1.1" 500 80591
+ERROR 2025-04-06 23:27:02,390 log Internal Server Error: /exam/15/grade/
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 483, in grade_exam
+    exam_result, created = ExamResult.objects.get_or_create(student=student, exam=exam)
+NameError: name 'ExamResult' is not defined
+ERROR 2025-04-06 23:27:02,394 basehttp "POST /exam/15/grade/ HTTP/1.1" 500 80591
+ERROR 2025-04-06 23:28:31,016 log Internal Server Error: /student/homepage/
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 499, in student_homepage
+    exam_results = ExamResult.objects.filter(student=student)
+NameError: name 'ExamResult' is not defined
+ERROR 2025-04-06 23:28:31,020 basehttp "GET /student/homepage/ HTTP/1.1" 500 72890

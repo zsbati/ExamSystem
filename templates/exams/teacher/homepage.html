@@ -13,7 +13,10 @@
 <h3>My Exams</h3>
 <ul>
     {% for exam in exams %}
-    <li><a href="{% url 'exam_detail' exam.id %}">{{ exam.title }}</a> - {{ exam.created_at }}</li>
+    <li><a href="{% url 'exam_detail' exam.id %}">{{ exam.title }}</a> - {{ exam.created_at }}
+        <a href="{% url 'view_student_answers' exam.id %}">View Student Answers</a>
+        <a href="{% url 'grade_exam' exam.id %}">Grade Exam</a>
+    </li>
     {% endfor %}
 </ul>
 {% endblock %}

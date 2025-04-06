@@ -84,3 +84,16 @@ class StudentAnswerForm(forms.ModelForm):
     class Meta:
         model = StudentAnswer
         fields = ['answer']
+
+
+class GradeForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        student_answers = kwargs.pop('student_answers', [])
+        super().__init__(*args, **kwargs)
+        for answer in student_answers:
+            self.fields[f'grade_{answer.id}'] = forms.IntegerField(
+                label=f'Grade for {answer.student.user.username} - {answer.question.question_text}',
+                min_value=0, max_value=100,
+                initial=answer.grade  # Initialize with the current grade
+            )
+

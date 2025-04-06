@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ exam.title }} - Grade Exam</h2>
+<form method="post">
+    {% csrf_token %}
+    {% for answer in student_answers %}
+    <div>
+        <label>{{ answer.student.user.username }} - {{ answer.question.question_text }}</label><br>
+        <p><strong>Student's Answer:</strong> {{ answer.answer }}</p>
+        <label for="grade_{{ answer.id }}">Grade:</label>
+        <input type="number" name="grade_{{ answer.id }}" id="grade_{{ answer.id }}" min="0" max="100"
+               value="{{ answer.grade }}">
+    </div>
+    {% endfor %}
+    <button type="submit">Save Grades</button>
+</form>
+{% endblock %}

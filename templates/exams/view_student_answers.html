@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ exam.title }} - Student Answers</h2>
+<table>
+    <tr>
+        <th>Student</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Grade</th>
+    </tr>
+    {% for answer in student_answers %}
+    <tr>
+        <td>{{ answer.student.user.username }}</td>
+        <td>{{ answer.question.question_text }}</td>
+        <td>{{ answer.answer }}</td>
+        <td>{{ answer.grade }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'grade_exam' exam.id %}">Grade Exam</a>
+{% endblock %}
