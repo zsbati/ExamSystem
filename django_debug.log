@@ -4176,3 +4176,1005 @@ DEBUG 2025-04-07 14:37:53,373 utils (0.016) SELECT "auth_user"."id", "auth_user"
 DEBUG 2025-04-07 14:37:53,382 utils (0.000) SELECT "exams_student"."id", "exams_student"."user_id", "exams_student"."grade" FROM "exams_student" WHERE "exams_student"."id" = 1 LIMIT 21; args=(1,); alias=default
 DEBUG 2025-04-07 14:37:53,388 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 10 LIMIT 21; args=(10,); alias=default
 INFO 2025-04-07 14:37:53,440 basehttp "GET /students/1/change-password/ HTTP/1.1" 200 4458
+INFO 2025-04-07 14:48:07,246 autoreload Watching for file changes with StatReloader
+DEBUG 2025-04-07 14:48:07,250 autoreload Waiting for apps ready_event.
+DEBUG 2025-04-07 14:48:07,313 autoreload Apps ready_event triggered. Sending autoreload_started signal.
+DEBUG 2025-04-07 14:48:07,408 autoreload Watching dir C:\Users\35196\password\exams\templates with glob **/*.
+DEBUG 2025-04-07 14:48:07,409 autoreload Watching dir C:\Users\35196\password\exams\locale with glob **/*.mo.
+DEBUG 2025-04-07 14:48:07,409 autoreload Watching dir C:\Users\35196\password\exams\exams\locale with glob **/*.mo.
+DEBUG 2025-04-07 14:48:07,621 utils (0.000) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None; alias=default
+DEBUG 2025-04-07 14:48:07,633 utils (0.000) SELECT "django_migrations"."id", "django_migrations"."app", "django_migrations"."name", "django_migrations"."applied" FROM "django_migrations"; args=(); alias=default
+DEBUG 2025-04-07 14:48:08,500 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\formats.py first seen with mtime 1740250530.317254
+DEBUG 2025-04-07 14:48:08,500 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\copy.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,501 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\regex_helper.py first seen with mtime 1740250530.3520205
+DEBUG 2025-04-07 14:48:08,502 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\base\introspection.py first seen with mtime 1740250529.7202623
+DEBUG 2025-04-07 14:48:08,503 autoreload File C:\Users\35196\password\exams\exams\apps.py first seen with mtime 1741378487.9820528
+DEBUG 2025-04-07 14:48:08,503 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\urls\conf.py first seen with mtime 1740250530.2675884
+DEBUG 2025-04-07 14:48:08,504 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\functools.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,504 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\api.py first seen with mtime 1740250526.6449027
+DEBUG 2025-04-07 14:48:08,505 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\uploadedfile.py first seen with mtime 1740250529.5345109
+DEBUG 2025-04-07 14:48:08,506 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\socket.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,506 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\generic\list.py first seen with mtime 1740250530.4126139
+DEBUG 2025-04-07 14:48:08,507 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\utils.py first seen with mtime 1740250529.7023811
+DEBUG 2025-04-07 14:48:08,507 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\cache\backends\filebased.py first seen with mtime 1740250529.350742
+DEBUG 2025-04-07 14:48:08,508 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\options.py first seen with mtime 1740250529.9010482
+DEBUG 2025-04-07 14:48:08,509 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\enums.py first seen with mtime 1740250529.8921096
+DEBUG 2025-04-07 14:48:08,509 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\checks.py first seen with mtime 1740250524.477451
+DEBUG 2025-04-07 14:48:08,510 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\http.py first seen with mtime 1740250530.3252099
+DEBUG 2025-04-07 14:48:08,511 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\posixpath.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,511 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sites\__init__.py first seen with mtime 1740250528.3822427
+DEBUG 2025-04-07 14:48:08,512 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\__init__.py first seen with mtime 1740250523.965885
+DEBUG 2025-04-07 14:48:08,513 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\base\schema.py first seen with mtime 1740250529.7252307
+DEBUG 2025-04-07 14:48:08,513 autoreload File C:\Users\35196\password\exams\exams\templatetags\__init__.py first seen with mtime 1741127337.82699
+DEBUG 2025-04-07 14:48:08,514 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\compatibility\__init__.py first seen with mtime 1740250529.4649782
+DEBUG 2025-04-07 14:48:08,514 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\models.py first seen with mtime 1740250521.4070616
+DEBUG 2025-04-07 14:48:08,515 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\security\__init__.py first seen with mtime 1740250529.4689505
+DEBUG 2025-04-07 14:48:08,516 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\version.py first seen with mtime 1740250530.3649344
+DEBUG 2025-04-07 14:48:08,517 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\urls\exceptions.py first seen with mtime 1740250530.270568
+DEBUG 2025-04-07 14:48:08,517 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\cli.py first seen with mtime 1740250517.6606326
+DEBUG 2025-04-07 14:48:08,518 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\compatibility\django_4_0.py first seen with mtime 1740250529.4669635
+DEBUG 2025-04-07 14:48:08,518 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\management\commands\__init__.py first seen with mtime 1740250529.22459
+DEBUG 2025-04-07 14:48:08,519 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\__init__.py first seen with mtime 1740250529.3606756
+DEBUG 2025-04-07 14:48:08,520 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\coroutines.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,520 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\base_tasks.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,521 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,521 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\lorem_ipsum.py first seen with mtime 1740250530.3470538
+DEBUG 2025-04-07 14:48:08,522 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\mime\message.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,523 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\stat.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,523 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\models.py first seen with mtime 1740250527.8229973
+DEBUG 2025-04-07 14:48:08,524 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\caches.py first seen with mtime 1740250529.3636556
+DEBUG 2025-04-07 14:48:08,524 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\importlib\_abc.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,525 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\constraints.py first seen with mtime 1740250529.8871417
+DEBUG 2025-04-07 14:48:08,526 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\__init__.py first seen with mtime 1740250529.7033753
+DEBUG 2025-04-07 14:48:08,526 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\difflib.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,527 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\apps.py first seen with mtime 1740250521.3852081
+DEBUG 2025-04-07 14:48:08,528 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\runners.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,529 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\templates.py first seen with mtime 1740250529.4600096
+DEBUG 2025-04-07 14:48:08,530 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\deprecation.py first seen with mtime 1740250530.3122878
+DEBUG 2025-04-07 14:48:08,530 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\fields\__init__.py first seen with mtime 1740250529.9139602
+DEBUG 2025-04-07 14:48:08,531 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\enum.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,532 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\windows_utils.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,532 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\http\server.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,533 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\wsgiref\simple_server.py first seen with mtime 1633371126.0
+DEBUG 2025-04-07 14:48:08,533 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\context.py first seen with mtime 1740250530.181168
+DEBUG 2025-04-07 14:48:08,534 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\warnings.py first seen with mtime 1633371126.0
+DEBUG 2025-04-07 14:48:08,535 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_sqlite3.pyd first seen with mtime 1633371160.0
+DEBUG 2025-04-07 14:48:08,535 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\apps.py first seen with mtime 1740250527.8160434
+DEBUG 2025-04-07 14:48:08,536 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\filters.py first seen with mtime 1740250521.3941493
+DEBUG 2025-04-07 14:48:08,537 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\loaders\__init__.py first seen with mtime 1740250530.221897
+DEBUG 2025-04-07 14:48:08,537 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\encodings\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,538 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\http\cookie.py first seen with mtime 1740250530.150375
+DEBUG 2025-04-07 14:48:08,538 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\dates.py first seen with mtime 1740250530.3033488
+DEBUG 2025-04-07 14:48:08,539 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\operator.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,540 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\__init__.py first seen with mtime 1740250521.3822281
+DEBUG 2025-04-07 14:48:08,540 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\tokens.py first seen with mtime 1740250517.6735437
+DEBUG 2025-04-07 14:48:08,541 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\storage\mixins.py first seen with mtime 1740250529.5543795
+DEBUG 2025-04-07 14:48:08,541 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\conf\__init__.py first seen with mtime 1740250519.1387608
+DEBUG 2025-04-07 14:48:08,542 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\sql\__init__.py first seen with mtime 1740250529.9487298
+DEBUG 2025-04-07 14:48:08,543 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\sql\query.py first seen with mtime 1740250529.9576726
+DEBUG 2025-04-07 14:48:08,543 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\selectors.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,544 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\filters\__init__.py first seen with mtime 1740250517.723211
+DEBUG 2025-04-07 14:48:08,545 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\events.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,545 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\__init__.py first seen with mtime 1740250521.380242
+DEBUG 2025-04-07 14:48:08,546 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\mime\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,546 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_zoneinfo.pyd first seen with mtime 1633371160.0
+DEBUG 2025-04-07 14:48:08,547 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\tokenize.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,547 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\base\creation.py first seen with mtime 1740250529.717281
+DEBUG 2025-04-07 14:48:08,548 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\__init__.py first seen with mtime 1740250527.8150494
+DEBUG 2025-04-07 14:48:08,549 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\policy.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,550 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\socketserver.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,550 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\operations\__init__.py first seen with mtime 1740250529.868269
+DEBUG 2025-04-07 14:48:08,551 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\apps\__init__.py first seen with mtime 1740250519.1169071
+DEBUG 2025-04-07 14:48:08,551 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\dotenv\__init__.py first seen with mtime 1743685025.8267179
+DEBUG 2025-04-07 14:48:08,552 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\multiprocessing\context.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,553 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\fields\proxy.py first seen with mtime 1740250529.920915
+DEBUG 2025-04-07 14:48:08,553 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\subprocess.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,554 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\unicodedata.pyd first seen with mtime 1633371164.0
+DEBUG 2025-04-07 14:48:08,554 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\sqlite3\base.py first seen with mtime 1740250529.8285358
+DEBUG 2025-04-07 14:48:08,555 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\http\multipartparser.py first seen with mtime 1740250530.1523626
+DEBUG 2025-04-07 14:48:08,556 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\views\autocomplete.py first seen with mtime 1740250523.0381136
+DEBUG 2025-04-07 14:48:08,556 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\exceptions.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,557 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\logging\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,557 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\registry.py first seen with mtime 1740250529.4580226
+DEBUG 2025-04-07 14:48:08,558 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_asyncio.pyd first seen with mtime 1633371160.0
+DEBUG 2025-04-07 14:48:08,559 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\apps\config.py first seen with mtime 1740250519.135781
+DEBUG 2025-04-07 14:48:08,559 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\deletion.py first seen with mtime 1740250529.888135
+DEBUG 2025-04-07 14:48:08,560 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\wsgiref\handlers.py first seen with mtime 1633371126.0
+DEBUG 2025-04-07 14:48:08,561 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\urllib\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,561 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\backends\__init__.py first seen with mtime 1740250527.82697
+DEBUG 2025-04-07 14:48:08,562 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\serializers\base.py first seen with mtime 1740250529.6864886
+DEBUG 2025-04-07 14:48:08,563 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\http\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,563 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\servers\basehttp.py first seen with mtime 1740250529.6974144
+DEBUG 2025-04-07 14:48:08,564 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\logging\config.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,565 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\aggregates.py first seen with mtime 1740250529.8811817
+DEBUG 2025-04-07 14:48:08,565 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\signals.py first seen with mtime 1740250523.9907181
+DEBUG 2025-04-07 14:48:08,566 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\fields.py first seen with mtime 1740250524.4794378
+DEBUG 2025-04-07 14:48:08,567 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\backends\__init__.py first seen with mtime 1740250530.2109685
+DEBUG 2025-04-07 14:48:08,568 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\_os.py first seen with mtime 1740250530.278516
+DEBUG 2025-04-07 14:48:08,568 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\autoreload.py first seen with mtime 1740250530.2844775
+DEBUG 2025-04-07 14:48:08,569 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\decorators.py first seen with mtime 1740250530.309309
+DEBUG 2025-04-07 14:48:08,569 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\checks.py first seen with mtime 1740250529.1014156
+DEBUG 2025-04-07 14:48:08,570 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\views.py first seen with mtime 1740250529.2196233
+DEBUG 2025-04-07 14:48:08,571 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\sql\datastructures.py first seen with mtime 1740250529.953694
+DEBUG 2025-04-07 14:48:08,571 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\__init__.py first seen with mtime 1740250519.1010146
+DEBUG 2025-04-07 14:48:08,572 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\handlers\base.py first seen with mtime 1740250529.565305
+DEBUG 2025-04-07 14:48:08,572 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\dotenv\main.py first seen with mtime 1743685025.8416183
+DEBUG 2025-04-07 14:48:08,573 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\__init__.py first seen with mtime 1740250530.3788416
+DEBUG 2025-04-07 14:48:08,574 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\token.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,574 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_hashlib.pyd first seen with mtime 1633371160.0
+DEBUG 2025-04-07 14:48:08,575 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\urllib\request.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,576 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\hashable.py first seen with mtime 1740250530.320235
+DEBUG 2025-04-07 14:48:08,576 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\database.py first seen with mtime 1740250529.364649
+DEBUG 2025-04-07 14:48:08,577 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\management\commands\runserver.py first seen with mtime 1740250529.664634
+DEBUG 2025-04-07 14:48:08,577 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\templatetags\l10n.py first seen with mtime 1740250530.236796
+DEBUG 2025-04-07 14:48:08,578 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\filters\aligned_indent.py first seen with mtime 1740250517.7251985
+DEBUG 2025-04-07 14:48:08,579 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_urls.py first seen with mtime 1740250523.0321522
+DEBUG 2025-04-07 14:48:08,579 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\sites.py first seen with mtime 1740250521.414016
+DEBUG 2025-04-07 14:48:08,580 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\collections\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,581 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\_markupbase.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,581 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\base\client.py first seen with mtime 1740250529.7162883
+DEBUG 2025-04-07 14:48:08,582 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sites\requests.py first seen with mtime 1740250528.396149
+DEBUG 2025-04-07 14:48:08,582 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\base\features.py first seen with mtime 1740250529.7192683
+DEBUG 2025-04-07 14:48:08,583 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\urls\__init__.py first seen with mtime 1740250530.264608
+DEBUG 2025-04-07 14:48:08,584 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\__init__.py first seen with mtime 1740250517.655665
+DEBUG 2025-04-07 14:48:08,584 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\__init__.py first seen with mtime 1740250529.879196
+DEBUG 2025-04-07 14:48:08,585 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\query.py first seen with mtime 1740250529.9030347
+DEBUG 2025-04-07 14:48:08,585 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\ipv6.py first seen with mtime 1740250530.3381145
+DEBUG 2025-04-07 14:48:08,586 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\pprint.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,587 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\platform.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,587 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\uploadhandler.py first seen with mtime 1740250529.5374906
+DEBUG 2025-04-07 14:48:08,588 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\functions\__init__.py first seen with mtime 1740250529.9318428
+DEBUG 2025-04-07 14:48:08,588 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\security\csrf.py first seen with mtime 1740250529.4719305
+DEBUG 2025-04-07 14:48:08,589 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\forms\fields.py first seen with mtime 1740250529.9705813
+DEBUG 2025-04-07 14:48:08,590 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\abc.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,590 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\http\cookies.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,591 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\fields\related_descriptors.py first seen with mtime 1740250529.9268756
+DEBUG 2025-04-07 14:48:08,592 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\validators.py first seen with mtime 1740250529.3338573
+DEBUG 2025-04-07 14:48:08,592 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\inspect.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,593 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\uuid.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,593 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\encoding.py first seen with mtime 1740250530.314274
+DEBUG 2025-04-07 14:48:08,594 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\loader_tags.py first seen with mtime 1740250530.1960702
+DEBUG 2025-04-07 14:48:08,595 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\apps\registry.py first seen with mtime 1740250519.1377668
+DEBUG 2025-04-07 14:48:08,595 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\signing.py first seen with mtime 1740250529.3318696
+DEBUG 2025-04-07 14:48:08,596 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\exceptions.py first seen with mtime 1740250529.2414787
+DEBUG 2025-04-07 14:48:08,597 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\i18n.py first seen with mtime 1740250530.384801
+DEBUG 2025-04-07 14:48:08,597 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\forms\widgets.py first seen with mtime 1740250529.9825015
+DEBUG 2025-04-07 14:48:08,598 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\apps.py first seen with mtime 1740250526.6458964
+DEBUG 2025-04-07 14:48:08,598 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\ipaddress.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,599 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\mime\text.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,600 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\password_validation.py first seen with mtime 1740250523.9897254
+DEBUG 2025-04-07 14:48:08,600 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\handlers.py first seen with mtime 1740250529.2116785
+DEBUG 2025-04-07 14:48:08,601 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\storage\handler.py first seen with mtime 1740250529.5494125
+DEBUG 2025-04-07 14:48:08,601 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\translation\__init__.py first seen with mtime 1740250530.3679142
+DEBUG 2025-04-07 14:48:08,602 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\handlers\__init__.py first seen with mtime 1740250529.5603359
+DEBUG 2025-04-07 14:48:08,602 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\crypto.py first seen with mtime 1740250530.2983801
+DEBUG 2025-04-07 14:48:08,603 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\paginator.py first seen with mtime 1740250529.243463
+DEBUG 2025-04-07 14:48:08,604 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\locale.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,604 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\admin.py first seen with mtime 1740250523.9668784
+DEBUG 2025-04-07 14:48:08,605 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_list.py first seen with mtime 1740250523.0281801
+DEBUG 2025-04-07 14:48:08,605 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\bisect.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,606 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\transaction.py first seen with mtime 1740250529.7013876
+DEBUG 2025-04-07 14:48:08,607 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\security\base.py first seen with mtime 1740250529.469944
+DEBUG 2025-04-07 14:48:08,608 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\lexer.py first seen with mtime 1740250517.669572
+DEBUG 2025-04-07 14:48:08,608 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\json\decoder.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,609 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\text.py first seen with mtime 1740250530.3579843
+DEBUG 2025-04-07 14:48:08,610 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\dotenv\parser.py first seen with mtime 1743685025.8445978
+DEBUG 2025-04-07 14:48:08,610 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\html\parser.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,611 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\sre_compile.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,612 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\dataclasses.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,612 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\tempfile.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,613 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\base64mime.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,613 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\security\sessions.py first seen with mtime 1740250529.4739215
+DEBUG 2025-04-07 14:48:08,614 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\operations\special.py first seen with mtime 1740250529.8772087
+DEBUG 2025-04-07 14:48:08,615 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\forms\renderers.py first seen with mtime 1740250529.978528
+DEBUG 2025-04-07 14:48:08,615 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\contentmanager.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,616 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\iterators.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,616 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\utils.py first seen with mtime 1740250517.6973834
+DEBUG 2025-04-07 14:48:08,617 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\asgiref\current_thread_executor.py first seen with mtime 1740250518.6072764
+DEBUG 2025-04-07 14:48:08,618 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\utils.py first seen with mtime 1740250529.9109807
+DEBUG 2025-04-07 14:48:08,618 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\filters\others.py first seen with mtime 1740250517.7271864
+DEBUG 2025-04-07 14:48:08,619 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\loaders\filesystem.py first seen with mtime 1740250530.2298408
+DEBUG 2025-04-07 14:48:08,620 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\statistics.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,620 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\encodings\utf_8.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,621 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\typing.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,621 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\__init__.py first seen with mtime 1740250526.6439116
+DEBUG 2025-04-07 14:48:08,622 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\sqlite3\schema.py first seen with mtime 1740250529.8374746
+DEBUG 2025-04-07 14:48:08,623 autoreload File C:\Users\35196\password\exams\project_exams\settings.py first seen with mtime 1743685285.720512
+DEBUG 2025-04-07 14:48:08,624 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\wsgiref\util.py first seen with mtime 1633371126.0
+DEBUG 2025-04-07 14:48:08,624 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\reprlib.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,625 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\conf\global_settings.py first seen with mtime 1740250519.141742
+DEBUG 2025-04-07 14:48:08,626 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\importlib\machinery.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,627 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\filters\tokens.py first seen with mtime 1740250517.7351305
+DEBUG 2025-04-07 14:48:08,627 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\models.py first seen with mtime 1740250524.4824183
+DEBUG 2025-04-07 14:48:08,628 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\zoneinfo\_common.py first seen with mtime 1633371126.0
+DEBUG 2025-04-07 14:48:08,628 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\views.py first seen with mtime 1740250524.0076056
+DEBUG 2025-04-07 14:48:08,629 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\migration.py first seen with mtime 1740250529.8523748
+DEBUG 2025-04-07 14:48:08,630 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\sqlite3\_functions.py first seen with mtime 1740250529.8275414
+DEBUG 2025-04-07 14:48:08,630 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\mixins.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,631 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\staggered.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,632 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\loaders\app_directories.py first seen with mtime 1740250530.2248805
+DEBUG 2025-04-07 14:48:08,632 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\_policybase.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,633 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\tasks.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,634 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\collections\abc.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,634 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\urllib\parse.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,635 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\importlib\util.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,636 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\loaders\base.py first seen with mtime 1740250530.226861
+DEBUG 2025-04-07 14:48:08,636 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\exceptions.py first seen with mtime 1740250529.8454223
+DEBUG 2025-04-07 14:48:08,637 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\threads.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,638 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\templatetags\cache.py first seen with mtime 1740250530.2338138
+DEBUG 2025-04-07 14:48:08,638 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\ctypes\_endian.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,639 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\templatetags\tz.py first seen with mtime 1740250530.2417624
+DEBUG 2025-04-07 14:48:08,640 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\defaulttags.py first seen with mtime 1740250530.1871276
+DEBUG 2025-04-07 14:48:08,641 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\apps.py first seen with mtime 1740250524.476459
+DEBUG 2025-04-07 14:48:08,641 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\gettext.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,642 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\http\request.py first seen with mtime 1740250530.1543486
+DEBUG 2025-04-07 14:48:08,643 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_uuid.pyd first seen with mtime 1633371160.0
+DEBUG 2025-04-07 14:48:08,643 autoreload File C:\Users\35196\password\exams\exams\__init__.py first seen with mtime 1740249012.7326465
+DEBUG 2025-04-07 14:48:08,643 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\gzip.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,644 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\timesince.py first seen with mtime 1740250530.3599687
+DEBUG 2025-04-07 14:48:08,645 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\numberformat.py first seen with mtime 1740250530.350034
+DEBUG 2025-04-07 14:48:08,645 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\views\__init__.py first seen with mtime 1740250523.0371206
+DEBUG 2025-04-07 14:48:08,646 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\functions\text.py first seen with mtime 1740250529.9447544
+DEBUG 2025-04-07 14:48:08,647 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\mime\base.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,647 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\forms\models.py first seen with mtime 1740250529.9775343
+DEBUG 2025-04-07 14:48:08,648 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\functions\math.py first seen with mtime 1740250529.936808
+DEBUG 2025-04-07 14:48:08,649 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\re.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,649 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\operations\base.py first seen with mtime 1740250529.8702562
+DEBUG 2025-04-07 14:48:08,650 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\decorators.py first seen with mtime 1740250523.9797933
+DEBUG 2025-04-07 14:48:08,651 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\management\__init__.py first seen with mtime 1740250529.6219232
+DEBUG 2025-04-07 14:48:08,651 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\cache\__init__.py first seen with mtime 1740250529.3378284
+DEBUG 2025-04-07 14:48:08,652 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\signals.py first seen with mtime 1740250529.9089954
+DEBUG 2025-04-07 14:48:08,653 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\mail\message.py first seen with mtime 1740250529.6020563
+DEBUG 2025-04-07 14:48:08,653 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\charset.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,654 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\sqlite3\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,655 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\types.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,655 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\__init__.py first seen with mtime 1740250524.473479
+DEBUG 2025-04-07 14:48:08,656 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\urllib\error.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,656 autoreload File C:\Users\35196\password\exams\project_exams\__init__.py first seen with mtime 1740249085.9039598
+DEBUG 2025-04-07 14:48:08,657 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\json\encoder.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,658 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sites\shortcuts.py first seen with mtime 1740250528.3971443
+DEBUG 2025-04-07 14:48:08,659 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\sqlite3\creation.py first seen with mtime 1740250529.8315141
+DEBUG 2025-04-07 14:48:08,659 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\exceptions.py first seen with mtime 1740250530.1911044
+DEBUG 2025-04-07 14:48:08,660 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\quoprimime.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,660 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\sqlite3\dbapi2.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,661 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\dateformat.py first seen with mtime 1740250530.3003674
+DEBUG 2025-04-07 14:48:08,662 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\concurrent\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,662 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\protocols.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,663 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\tree.py first seen with mtime 1740250530.3629477
+DEBUG 2025-04-07 14:48:08,664 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\filters\reindent.py first seen with mtime 1740250517.7311563
+DEBUG 2025-04-07 14:48:08,664 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\ddl_references.py first seen with mtime 1740250529.7053607
+DEBUG 2025-04-07 14:48:08,665 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\sql\where.py first seen with mtime 1740250529.9606483
+DEBUG 2025-04-07 14:48:08,666 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\backends\base.py first seen with mtime 1740250530.2129543
+DEBUG 2025-04-07 14:48:08,666 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\utils.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,667 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\translation\reloader.py first seen with mtime 1740250530.3699002
+DEBUG 2025-04-07 14:48:08,667 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\storage\__init__.py first seen with mtime 1740250529.543455
+DEBUG 2025-04-07 14:48:08,668 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\errors.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,669 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\contextlib.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,669 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\utils.py first seen with mtime 1740250529.710327
+DEBUG 2025-04-07 14:48:08,670 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\ssl.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,671 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\forms\__init__.py first seen with mtime 1740250529.9676018
+DEBUG 2025-04-07 14:48:08,671 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\mime\nonmultipart.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,672 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\functions\comparison.py first seen with mtime 1740250529.9338293
+DEBUG 2025-04-07 14:48:08,672 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\middleware\cache.py first seen with mtime 1740250530.1613028
+DEBUG 2025-04-07 14:48:08,673 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\smartif.py first seen with mtime 1740250530.2000432
+DEBUG 2025-04-07 14:48:08,674 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\forms.py first seen with mtime 1740250523.980786
+DEBUG 2025-04-07 14:48:08,675 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_socket.pyd first seen with mtime 1633371162.0
+DEBUG 2025-04-07 14:48:08,675 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\sre_parse.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,676 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\images.py first seen with mtime 1740250529.4798758
+DEBUG 2025-04-07 14:48:08,677 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\html\entities.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,677 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\cache\backends\__init__.py first seen with mtime 1740250529.3437886
+DEBUG 2025-04-07 14:48:08,678 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\decorators.py first seen with mtime 1740250521.3891816
+DEBUG 2025-04-07 14:48:08,678 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\locks.py first seen with mtime 1740250529.4818676
+DEBUG 2025-04-07 14:48:08,679 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\handlers\wsgi.py first seen with mtime 1740250529.5682838
+DEBUG 2025-04-07 14:48:08,680 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\urls\base.py first seen with mtime 1740250530.266595
+DEBUG 2025-04-07 14:48:08,680 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\base_session.py first seen with mtime 1740250527.8180287
+DEBUG 2025-04-07 14:48:08,681 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\base.py first seen with mtime 1740250529.883169
+DEBUG 2025-04-07 14:48:08,682 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\translation\trans_real.py first seen with mtime 1740250530.376855
+DEBUG 2025-04-07 14:48:08,682 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\engine\__init__.py first seen with mtime 1740250517.700363
+DEBUG 2025-04-07 14:48:08,683 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\asyncio.py first seen with mtime 1740250530.2824874
+DEBUG 2025-04-07 14:48:08,683 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\urllib\response.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,684 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\sql\constants.py first seen with mtime 1740250529.9527016
+DEBUG 2025-04-07 14:48:08,685 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_queue.pyd first seen with mtime 1633371160.0
+DEBUG 2025-04-07 14:48:08,685 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\query_utils.py first seen with mtime 1740250529.9050212
+DEBUG 2025-04-07 14:48:08,686 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\middleware\security.py first seen with mtime 1740250530.1742177
+DEBUG 2025-04-07 14:48:08,687 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\utils.py first seen with mtime 1740250521.418981
+DEBUG 2025-04-07 14:48:08,688 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\__init__.py first seen with mtime 1740250529.4768996
+DEBUG 2025-04-07 14:48:08,688 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_bz2.pyd first seen with mtime 1633371160.0
+DEBUG 2025-04-07 14:48:08,689 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\dis.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,690 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\validators.py first seen with mtime 1740250524.0056176
+DEBUG 2025-04-07 14:48:08,690 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\html.py first seen with mtime 1740250530.32222
+DEBUG 2025-04-07 14:48:08,691 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\parser.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,692 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\sqlite3\client.py first seen with mtime 1740250529.8295274
+DEBUG 2025-04-07 14:48:08,692 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\sqlite3\features.py first seen with mtime 1740250529.833502
+DEBUG 2025-04-07 14:48:08,693 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\numbers.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,693 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\futures.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,694 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\engine\grouping.py first seen with mtime 1740250517.716257
+DEBUG 2025-04-07 14:48:08,695 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\loader.py first seen with mtime 1740250530.1950765
+DEBUG 2025-04-07 14:48:08,695 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\messages.py first seen with mtime 1740250529.4530568
+DEBUG 2025-04-07 14:48:08,696 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\management\__init__.py first seen with mtime 1740250529.2206163
+DEBUG 2025-04-07 14:48:08,697 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\pathlib.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,697 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\codecs.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,698 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\generic\detail.py first seen with mtime 1740250530.4096336
+DEBUG 2025-04-07 14:48:08,698 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\model_checks.py first seen with mtime 1740250529.4550445
+DEBUG 2025-04-07 14:48:08,699 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\sql\subqueries.py first seen with mtime 1740250529.9596546
+DEBUG 2025-04-07 14:48:08,700 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\forms\utils.py first seen with mtime 1740250529.9805155
+DEBUG 2025-04-07 14:48:08,700 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\apps.py first seen with mtime 1740250529.1004233
+DEBUG 2025-04-07 14:48:08,701 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\graphlib.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,702 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\__init__.py first seen with mtime 1740250529.8414502
+DEBUG 2025-04-07 14:48:08,703 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\templatetags\__init__.py first seen with mtime 1740250530.2328207
+DEBUG 2025-04-07 14:48:08,703 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\backends\django.py first seen with mtime 1740250530.214942
+DEBUG 2025-04-07 14:48:08,704 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\ctypes\wintypes.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,704 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\signals.py first seen with mtime 1740250529.7093353
+DEBUG 2025-04-07 14:48:08,705 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\asgiref\sync.py first seen with mtime 1740250518.61721
+DEBUG 2025-04-07 14:48:08,706 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\encodings\cp1252.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,706 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\storage\memory.py first seen with mtime 1740250529.552394
+DEBUG 2025-04-07 14:48:08,707 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\filters\right_margin.py first seen with mtime 1740250517.7331443
+DEBUG 2025-04-07 14:48:08,708 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\management\color.py first seen with mtime 1740250529.6268923
+DEBUG 2025-04-07 14:48:08,708 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\fractions.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,709 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\struct.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,710 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\traceback.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,710 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\ast.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,711 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\storage\__init__.py first seen with mtime 1740250526.6578195
+DEBUG 2025-04-07 14:48:08,711 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\dotenv\variables.py first seen with mtime 1743685025.8515494
+DEBUG 2025-04-07 14:48:08,712 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\formatter.py first seen with mtime 1740250517.665598
+DEBUG 2025-04-07 14:48:08,713 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\generic\dates.py first seen with mtime 1740250530.408641
+DEBUG 2025-04-07 14:48:08,713 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\io.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,714 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\decorators\common.py first seen with mtime 1740250530.394734
+DEBUG 2025-04-07 14:48:08,714 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\pkgutil.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,715 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\utils.py first seen with mtime 1740250529.5414653
+DEBUG 2025-04-07 14:48:08,716 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\__init__.py first seen with mtime 1740250529.0984354
+DEBUG 2025-04-07 14:48:08,716 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\fnmatch.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,717 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\heapq.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,718 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\concurrent\futures\thread.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,718 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\decimal.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,719 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\encodings\aliases.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,720 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\middleware.py first seen with mtime 1740250523.9847603
+DEBUG 2025-04-07 14:48:08,720 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\templatetags\i18n.py first seen with mtime 1740250530.2358007
+DEBUG 2025-04-07 14:48:08,721 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\shortcuts.py first seen with mtime 1740250519.1089625
+DEBUG 2025-04-07 14:48:08,721 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\fields\files.py first seen with mtime 1740250529.914955
+DEBUG 2025-04-07 14:48:08,722 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\decorators\debug.py first seen with mtime 1740250530.3977146
+DEBUG 2025-04-07 14:48:08,723 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\_encoded_words.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,723 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\genericpath.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,724 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\sql.py first seen with mtime 1740250517.6715586
+DEBUG 2025-04-07 14:48:08,724 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\response.py first seen with mtime 1740250530.198056
+DEBUG 2025-04-07 14:48:08,725 autoreload File C:\Users\35196\password\exams\manage.py first seen with mtime 1740251313.6431632
+DEBUG 2025-04-07 14:48:08,726 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\constants.py first seen with mtime 1740250529.8841622
+DEBUG 2025-04-07 14:48:08,726 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\windows_events.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,727 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\__init__.py first seen with mtime 1740250530.176203
+DEBUG 2025-04-07 14:48:08,728 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\actions.py first seen with mtime 1740250521.3842137
+DEBUG 2025-04-07 14:48:08,728 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_decimal.pyd first seen with mtime 1633371162.0
+DEBUG 2025-04-07 14:48:08,729 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\subprocess.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,729 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\multiprocessing\process.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,730 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\generic\__init__.py first seen with mtime 1740250530.4036734
+DEBUG 2025-04-07 14:48:08,731 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\pickle.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,731 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\base\__init__.py first seen with mtime 1740250529.7123148
+DEBUG 2025-04-07 14:48:08,732 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\fields\generated.py first seen with mtime 1740250529.9169421
+DEBUG 2025-04-07 14:48:08,732 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\forms\boundfield.py first seen with mtime 1740250529.9695873
+DEBUG 2025-04-07 14:48:08,733 autoreload File C:\Users\35196\password\exams\exams\admin.py first seen with mtime 1744031052.14695
+DEBUG 2025-04-07 14:48:08,734 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\urls\utils.py first seen with mtime 1740250530.2755387
+DEBUG 2025-04-07 14:48:08,734 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\static.py first seen with mtime 1740250530.3857949
+DEBUG 2025-04-07 14:48:08,735 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\termcolors.py first seen with mtime 1740250530.3540075
+DEBUG 2025-04-07 14:48:08,736 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\http\response.py first seen with mtime 1740250530.1573305
+DEBUG 2025-04-07 14:48:08,736 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\models.py first seen with mtime 1740250523.9877403
+DEBUG 2025-04-07 14:48:08,737 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\templatetags\static.py first seen with mtime 1740250530.2387805
+DEBUG 2025-04-07 14:48:08,738 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\zoneinfo\__init__.py first seen with mtime 1633371126.0
+DEBUG 2025-04-07 14:48:08,738 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\http\__init__.py first seen with mtime 1740250530.1493814
+DEBUG 2025-04-07 14:48:08,739 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\base64.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,739 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\serializers\python.py first seen with mtime 1740250529.6914558
+DEBUG 2025-04-07 14:48:08,740 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\locks.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,741 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\management\base.py first seen with mtime 1740250529.6249027
+DEBUG 2025-04-07 14:48:08,741 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\checks.py first seen with mtime 1740250523.9738324
+DEBUG 2025-04-07 14:48:08,742 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\urls.py first seen with mtime 1740250529.4639835
+DEBUG 2025-04-07 14:48:08,742 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\headerregistry.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,743 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\cache.py first seen with mtime 1740250530.2924247
+DEBUG 2025-04-07 14:48:08,744 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\middleware\__init__.py first seen with mtime 1740250530.1603093
+DEBUG 2025-04-07 14:48:08,744 autoreload File C:\Users\35196\password\exams\exams\urls.py first seen with mtime 1743975026.032867
+DEBUG 2025-04-07 14:48:08,745 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\nturl2path.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,745 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\templatetags\__init__.py first seen with mtime 1740250523.0261943
+DEBUG 2025-04-07 14:48:08,746 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\concurrent\futures\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,747 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\concurrent\futures\_base.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,747 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\random.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,748 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\filters\output.py first seen with mtime 1740250517.7291703
+DEBUG 2025-04-07 14:48:08,748 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\autoreload.py first seen with mtime 1740250530.1781888
+DEBUG 2025-04-07 14:48:08,749 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\dispatch\__init__.py first seen with mtime 1740250529.962634
+DEBUG 2025-04-07 14:48:08,750 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\admin.py first seen with mtime 1740250524.4744728
+DEBUG 2025-04-07 14:48:08,751 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\storage\filesystem.py first seen with mtime 1740250529.5484185
+DEBUG 2025-04-07 14:48:08,751 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\_header_value_parser.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,752 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\glob.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,753 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\apps.py first seen with mtime 1740250523.9688656
+DEBUG 2025-04-07 14:48:08,753 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\sslproto.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,754 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\select.pyd first seen with mtime 1633371162.0
+DEBUG 2025-04-07 14:48:08,755 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,755 autoreload File C:\Users\35196\password\exams\exams\views.py first seen with mtime 1744033477.140707
+DEBUG 2025-04-07 14:48:08,756 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\move.py first seen with mtime 1740250529.48385
+DEBUG 2025-04-07 14:48:08,756 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\serializers\json.py first seen with mtime 1740250529.6874812
+DEBUG 2025-04-07 14:48:08,757 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\asgiref\__init__.py first seen with mtime 1740250518.594372
+DEBUG 2025-04-07 14:48:08,758 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\base_user.py first seen with mtime 1740250523.9718456
+DEBUG 2025-04-07 14:48:08,758 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\decorators\cache.py first seen with mtime 1740250530.3927479
+DEBUG 2025-04-07 14:48:08,759 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\urls\converters.py first seen with mtime 1740250530.2695742
+DEBUG 2025-04-07 14:48:08,759 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\management\__init__.py first seen with mtime 1740250524.8658442
+DEBUG 2025-04-07 14:48:08,760 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\management\commands\__init__.py first seen with mtime 1740250529.6338441
+DEBUG 2025-04-07 14:48:08,761 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\getpass.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,761 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\utils.py first seen with mtime 1740250530.202029
+DEBUG 2025-04-07 14:48:08,762 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\os.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,763 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\constants.py first seen with mtime 1740250526.6478846
+DEBUG 2025-04-07 14:48:08,763 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\base\operations.py first seen with mtime 1740250529.7222502
+DEBUG 2025-04-07 14:48:08,764 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\base_futures.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,765 autoreload File C:\Users\35196\password\exams\project_exams\urls.py first seen with mtime 1741378751.3383002
+DEBUG 2025-04-07 14:48:08,765 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\servers\__init__.py first seen with mtime 1740250529.6964214
+DEBUG 2025-04-07 14:48:08,766 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\translation.py first seen with mtime 1740250529.4619973
+DEBUG 2025-04-07 14:48:08,767 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\storage\base.py first seen with mtime 1740250529.5464323
+DEBUG 2025-04-07 14:48:08,767 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_ctypes.pyd first seen with mtime 1633371160.0
+DEBUG 2025-04-07 14:48:08,768 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\timezone.py first seen with mtime 1740250530.360962
+DEBUG 2025-04-07 14:48:08,769 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\functions\datetime.py first seen with mtime 1740250529.9358149
+DEBUG 2025-04-07 14:48:08,769 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\linecache.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,770 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\conf\urls\__init__.py first seen with mtime 1740250521.3732896
+DEBUG 2025-04-07 14:48:08,771 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\utils.py first seen with mtime 1740250526.6538436
+DEBUG 2025-04-07 14:48:08,771 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\middleware.py first seen with mtime 1740250527.8210094
+DEBUG 2025-04-07 14:48:08,772 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\mime\multipart.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,773 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\bz2.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,773 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\_sitebuiltins.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,774 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\indexes.py first seen with mtime 1740250529.8960817
+DEBUG 2025-04-07 14:48:08,774 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\mimetypes.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,775 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\views.py first seen with mtime 1740250524.4853995
+DEBUG 2025-04-07 14:48:08,776 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\selector_events.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,777 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\trsock.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,777 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\state.py first seen with mtime 1740250529.863302
+DEBUG 2025-04-07 14:48:08,778 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\streams.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,778 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\shutil.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,779 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\constants.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,780 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\finders.py first seen with mtime 1740250529.2086966
+DEBUG 2025-04-07 14:48:08,780 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\cache\backends\base.py first seen with mtime 1740250529.3457756
+DEBUG 2025-04-07 14:48:08,781 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\sysconfig.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,782 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\exceptions.py first seen with mtime 1740250517.662617
+DEBUG 2025-04-07 14:48:08,783 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\encoders.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,784 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\checks.py first seen with mtime 1740250521.3871934
+DEBUG 2025-04-07 14:48:08,784 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\queues.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,785 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\ctypes\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,786 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\fields\mixins.py first seen with mtime 1740250529.9199219
+DEBUG 2025-04-07 14:48:08,786 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\sre_constants.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,787 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\operations\models.py first seen with mtime 1740250529.8762147
+DEBUG 2025-04-07 14:48:08,787 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\decorators\csrf.py first seen with mtime 1740250530.3967214
+DEBUG 2025-04-07 14:48:08,788 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\base.py first seen with mtime 1740250529.478884
+DEBUG 2025-04-07 14:48:08,789 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\contextvars.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,789 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\fields\related.py first seen with mtime 1741462511.0787728
+DEBUG 2025-04-07 14:48:08,790 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\base\validation.py first seen with mtime 1740250529.7272148
+DEBUG 2025-04-07 14:48:08,791 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\json\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,791 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\views\main.py first seen with mtime 1740250523.0450675
+DEBUG 2025-04-07 14:48:08,792 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\header.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,792 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\templatetags\log.py first seen with mtime 1740250523.0351338
+DEBUG 2025-04-07 14:48:08,793 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\files\temp.py first seen with mtime 1740250529.484843
+DEBUG 2025-04-07 14:48:08,794 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\templatetags\admin_modify.py first seen with mtime 1740250523.0301678
+DEBUG 2025-04-07 14:48:08,794 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\__init__.py first seen with mtime 1740250529.23651
+DEBUG 2025-04-07 14:48:08,795 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\engine.py first seen with mtime 1740250530.18812
+DEBUG 2025-04-07 14:48:08,795 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\format_helpers.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,796 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\forms\formsets.py first seen with mtime 1740250529.9745567
+DEBUG 2025-04-07 14:48:08,797 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\deconstruct.py first seen with mtime 1740250530.3053336
+DEBUG 2025-04-07 14:48:08,797 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\base_subprocess.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,797 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\log.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,797 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\handlers\asgi.py first seen with mtime 1740250529.5623226
+DEBUG 2025-04-07 14:48:08,798 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\generic\edit.py first seen with mtime 1740250530.4106271
+DEBUG 2025-04-07 14:48:08,799 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\cache\utils.py first seen with mtime 1740250529.341804
+DEBUG 2025-04-07 14:48:08,799 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\safestring.py first seen with mtime 1740250530.3530138
+DEBUG 2025-04-07 14:48:08,800 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\copyreg.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,801 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\functions\window.py first seen with mtime 1740250529.9467413
+DEBUG 2025-04-07 14:48:08,801 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\site.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,802 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\mail\__init__.py first seen with mtime 1740250529.5702713
+DEBUG 2025-04-07 14:48:08,802 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\module_loading.py first seen with mtime 1740250530.3490405
+DEBUG 2025-04-07 14:48:08,803 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\http\client.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,804 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\wsgiref\__init__.py first seen with mtime 1633371126.0
+DEBUG 2025-04-07 14:48:08,804 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\helpers.py first seen with mtime 1740250521.405074
+DEBUG 2025-04-07 14:48:08,805 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\functional.py first seen with mtime 1740250530.319241
+DEBUG 2025-04-07 14:48:08,805 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\choices.py first seen with mtime 1740250530.2944095
+DEBUG 2025-04-07 14:48:08,806 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\defaultfilters.py first seen with mtime 1740250530.1851401
+DEBUG 2025-04-07 14:48:08,807 autoreload File C:\Users\35196\password\exams\exams\forms.py first seen with mtime 1743977071.3244722
+DEBUG 2025-04-07 14:48:08,807 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\async_checks.py first seen with mtime 1740250529.3616686
+DEBUG 2025-04-07 14:48:08,808 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\feedparser.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,808 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\engine\statement_splitter.py first seen with mtime 1740250517.7212243
+DEBUG 2025-04-07 14:48:08,809 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\storage\base.py first seen with mtime 1740250526.659806
+DEBUG 2025-04-07 14:48:08,810 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\fields\json.py first seen with mtime 1740250529.9179351
+DEBUG 2025-04-07 14:48:08,810 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\connection.py first seen with mtime 1740250530.2963943
+DEBUG 2025-04-07 14:48:08,811 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\importlib\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,811 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\asgiref\local.py first seen with mtime 1740250518.6112566
+DEBUG 2025-04-07 14:48:08,812 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\manager.py first seen with mtime 1740250529.8990612
+DEBUG 2025-04-07 14:48:08,813 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\generator.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,814 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\_collections_abc.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,814 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\html\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,815 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\__init__.py first seen with mtime 1740250530.2765281
+DEBUG 2025-04-07 14:48:08,815 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\hashers.py first seen with mtime 1740250523.983766
+DEBUG 2025-04-07 14:48:08,816 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_overlapped.pyd first seen with mtime 1633371160.0
+DEBUG 2025-04-07 14:48:08,817 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\handlers\exception.py first seen with mtime 1740250529.5672908
+DEBUG 2025-04-07 14:48:08,817 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\secrets.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,818 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\forms.py first seen with mtime 1740250524.4804313
+DEBUG 2025-04-07 14:48:08,818 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\dateparse.py first seen with mtime 1740250530.3023543
+DEBUG 2025-04-07 14:48:08,819 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\_compression.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,820 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\urls\resolvers.py first seen with mtime 1740250530.2725565
+DEBUG 2025-04-07 14:48:08,820 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\logging\handlers.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,821 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\_compat_pickle.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,821 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\middleware\csrf.py first seen with mtime 1740250530.1662693
+DEBUG 2025-04-07 14:48:08,822 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\string.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,823 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\base.py first seen with mtime 1740250530.1801755
+DEBUG 2025-04-07 14:48:08,823 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\decorators\__init__.py first seen with mtime 1740250530.3887775
+DEBUG 2025-04-07 14:48:08,824 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\generic\base.py first seen with mtime 1740250530.4046679
+DEBUG 2025-04-07 14:48:08,824 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\mail\utils.py first seen with mtime 1740250529.6040435
+DEBUG 2025-04-07 14:48:08,825 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\base\base.py first seen with mtime 1740250529.7143016
+DEBUG 2025-04-07 14:48:08,826 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\fields\reverse_related.py first seen with mtime 1740250529.929854
+DEBUG 2025-04-07 14:48:08,826 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\wsgiref\headers.py first seen with mtime 1633371126.0
+DEBUG 2025-04-07 14:48:08,827 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\lookups.py first seen with mtime 1740250529.8970745
+DEBUG 2025-04-07 14:48:08,828 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\queue.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,828 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\hashlib.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,829 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\checks\files.py first seen with mtime 1740250529.3666358
+DEBUG 2025-04-07 14:48:08,830 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\opcode.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,830 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\uu.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,831 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\signal.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,832 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\argparse.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,832 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\forms\forms.py first seen with mtime 1740250529.9725688
+DEBUG 2025-04-07 14:48:08,833 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\templatetags\base.py first seen with mtime 1740250523.0331457
+DEBUG 2025-04-07 14:48:08,834 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\options.py first seen with mtime 1740250521.4120271
+DEBUG 2025-04-07 14:48:08,834 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\sqlite3\__init__.py first seen with mtime 1740250529.8245645
+DEBUG 2025-04-07 14:48:08,835 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\backends.py first seen with mtime 1740250523.9708526
+DEBUG 2025-04-07 14:48:08,836 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\datetime.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,836 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\base_events.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,837 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\management\commands\runserver.py first seen with mtime 1740250529.2305503
+DEBUG 2025-04-07 14:48:08,838 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\hmac.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,838 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\loaders\cached.py first seen with mtime 1740250530.227855
+DEBUG 2025-04-07 14:48:08,839 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\functions\mixins.py first seen with mtime 1740250529.9427674
+DEBUG 2025-04-07 14:48:08,840 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\tokens.py first seen with mtime 1740250523.9927065
+DEBUG 2025-04-07 14:48:08,840 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\dispatch\dispatcher.py first seen with mtime 1740250529.964622
+DEBUG 2025-04-07 14:48:08,841 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\multiprocessing\reduction.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,841 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\_weakrefset.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,842 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\fields\related_lookups.py first seen with mtime 1740250529.9278686
+DEBUG 2025-04-07 14:48:08,843 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\widgets.py first seen with mtime 1740250521.419974
+DEBUG 2025-04-07 14:48:08,843 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\defaults.py first seen with mtime 1740250530.3838077
+DEBUG 2025-04-07 14:48:08,844 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\datastructures.py first seen with mtime 1740250530.2993736
+DEBUG 2025-04-07 14:48:08,845 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\exceptions.py first seen with mtime 1740250521.3911686
+DEBUG 2025-04-07 14:48:08,846 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\utils.py first seen with mtime 1740250529.864296
+DEBUG 2025-04-07 14:48:08,847 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_lzma.pyd first seen with mtime 1633371162.0
+DEBUG 2025-04-07 14:48:08,848 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\operations\fields.py first seen with mtime 1740250529.871248
+DEBUG 2025-04-07 14:48:08,849 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\ntpath.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,849 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\serializers\__init__.py first seen with mtime 1740250529.684501
+DEBUG 2025-04-07 14:48:08,850 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\signals.py first seen with mtime 1740250529.3298833
+DEBUG 2025-04-07 14:48:08,851 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\proactor_events.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,851 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\lzma.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,852 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\threading.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,852 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\calendar.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,853 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\keywords.py first seen with mtime 1740250517.6675851
+DEBUG 2025-04-07 14:48:08,854 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\weakref.py first seen with mtime 1633371126.0
+DEBUG 2025-04-07 14:48:08,854 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\conf\locale\__init__.py first seen with mtime 1740250519.189422
+DEBUG 2025-04-07 14:48:08,855 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\debug.py first seen with mtime 1740250530.3818219
+DEBUG 2025-04-07 14:48:08,856 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\log.py first seen with mtime 1740250530.346061
+DEBUG 2025-04-07 14:48:08,856 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\__init__.py first seen with mtime 1740250529.6994028
+DEBUG 2025-04-07 14:48:08,857 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\management\__init__.py first seen with mtime 1740250524.4406989
+DEBUG 2025-04-07 14:48:08,858 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\expressions.py first seen with mtime 1740250529.8940952
+DEBUG 2025-04-07 14:48:08,858 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\inspect.py first seen with mtime 1740250530.3271885
+DEBUG 2025-04-07 14:48:08,859 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\keyword.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,860 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\sqlparse\engine\filter_stack.py first seen with mtime 1740250517.7142699
+DEBUG 2025-04-07 14:48:08,860 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\zoneinfo\_tzpath.py first seen with mtime 1633371126.0
+DEBUG 2025-04-07 14:48:08,861 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\sqlite3\introspection.py first seen with mtime 1740250529.8344946
+DEBUG 2025-04-07 14:48:08,862 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\asyncio\transports.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,863 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\utils.py first seen with mtime 1740250529.2186303
+DEBUG 2025-04-07 14:48:08,864 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\DLLs\_ssl.pyd first seen with mtime 1633371162.0
+DEBUG 2025-04-07 14:48:08,865 autoreload File C:\Users\35196\password\exams\exams\models.py first seen with mtime 1743977651.1965716
+DEBUG 2025-04-07 14:48:08,865 autoreload File C:\Users\35196\password\exams\exams\templatetags\exam_extras.py first seen with mtime 1743368418.7889402
+DEBUG 2025-04-07 14:48:08,866 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\wsgi.py first seen with mtime 1740250529.3358433
+DEBUG 2025-04-07 14:48:08,867 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\quopri.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,867 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\backends\sqlite3\operations.py first seen with mtime 1740250529.835488
+DEBUG 2025-04-07 14:48:08,868 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\message.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,869 autoreload File C:\Users\35196\password\exams\exams\templatetags\custom_filters.py first seen with mtime 1741378968.5538695
+DEBUG 2025-04-07 14:48:08,869 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\library.py first seen with mtime 1740250530.1930897
+DEBUG 2025-04-07 14:48:08,870 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\email\_parseaddr.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,871 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\multiprocessing\__init__.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,871 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\utils\duration.py first seen with mtime 1740250530.3132808
+DEBUG 2025-04-07 14:48:08,872 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\json\scanner.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:08,875 autoreload File C:\Users\35196\password\exams\templates\base.html first seen with mtime 1743782597.3747213
+DEBUG 2025-04-07 14:48:08,876 autoreload File C:\Users\35196\password\exams\templates\dashboard.html first seen with mtime 1742153893.8398576
+DEBUG 2025-04-07 14:48:08,877 autoreload File C:\Users\35196\password\exams\templates\exams first seen with mtime 1744033618.734338
+DEBUG 2025-04-07 14:48:08,878 autoreload File C:\Users\35196\password\exams\templates\home.html first seen with mtime 1743362847.0767179
+DEBUG 2025-04-07 14:48:08,878 autoreload File C:\Users\35196\password\exams\templates\login.html first seen with mtime 1741487991.8490274
+DEBUG 2025-04-07 14:48:08,879 autoreload File C:\Users\35196\password\exams\templates\logout.html first seen with mtime 1740253926.9278831
+DEBUG 2025-04-07 14:48:08,880 autoreload File C:\Users\35196\password\exams\templates\test.html first seen with mtime 1742074663.8123195
+DEBUG 2025-04-07 14:48:08,882 autoreload File C:\Users\35196\password\exams\templates\exams\change_own_password.html first seen with mtime 1741637106.0848882
+DEBUG 2025-04-07 14:48:08,883 autoreload File C:\Users\35196\password\exams\templates\exams\confirm_remove_teacher.html first seen with mtime 1744033618.7333457
+DEBUG 2025-04-07 14:48:08,883 autoreload File C:\Users\35196\password\exams\templates\exams\create_exam.html first seen with mtime 1743447995.153893
+DEBUG 2025-04-07 14:48:08,884 autoreload File C:\Users\35196\password\exams\templates\exams\exam_detail.html first seen with mtime 1742152893.238977
+DEBUG 2025-04-07 14:48:08,885 autoreload File C:\Users\35196\password\exams\templates\exams\exam_success.html first seen with mtime 1741638752.2759738
+DEBUG 2025-04-07 14:48:08,886 autoreload File C:\Users\35196\password\exams\templates\exams\grade_exam.html first seen with mtime 1743976928.8527715
+DEBUG 2025-04-07 14:48:08,886 autoreload File C:\Users\35196\password\exams\templates\exams\my_exams.html first seen with mtime 1742149298.7201147
+DEBUG 2025-04-07 14:48:08,887 autoreload File C:\Users\35196\password\exams\templates\exams\student first seen with mtime 1743979074.4359672
+DEBUG 2025-04-07 14:48:08,888 autoreload File C:\Users\35196\password\exams\templates\exams\student_exams.html first seen with mtime 1743364409.981418
+DEBUG 2025-04-07 14:48:08,889 autoreload File C:\Users\35196\password\exams\templates\exams\teacher first seen with mtime 1743975504.596596
+DEBUG 2025-04-07 14:48:08,890 autoreload File C:\Users\35196\password\exams\templates\exams\view_student_answers.html first seen with mtime 1743975186.2071352
+DEBUG 2025-04-07 14:48:08,891 autoreload File C:\Users\35196\password\exams\templates\exams\student\change_password.html first seen with mtime 1740353250.895305
+DEBUG 2025-04-07 14:48:08,892 autoreload File C:\Users\35196\password\exams\templates\exams\student\confirm_delete.html first seen with mtime 1740353091.2910967
+DEBUG 2025-04-07 14:48:08,893 autoreload File C:\Users\35196\password\exams\templates\exams\student\create_student.html first seen with mtime 1740345037.1597095
+DEBUG 2025-04-07 14:48:08,894 autoreload File C:\Users\35196\password\exams\templates\exams\student\edit_student.html first seen with mtime 1741180964.8654048
+DEBUG 2025-04-07 14:48:08,895 autoreload File C:\Users\35196\password\exams\templates\exams\student\exam_already_taken.html first seen with mtime 1743368069.0464106
+DEBUG 2025-04-07 14:48:08,896 autoreload File C:\Users\35196\password\exams\templates\exams\student\exam_submitted.html first seen with mtime 1743366039.618196
+DEBUG 2025-04-07 14:48:08,896 autoreload File C:\Users\35196\password\exams\templates\exams\student\homepage.html first seen with mtime 1743979074.4339797
+DEBUG 2025-04-07 14:48:08,897 autoreload File C:\Users\35196\password\exams\templates\exams\student\student_list.html first seen with mtime 1741180051.4868374
+DEBUG 2025-04-07 14:48:08,898 autoreload File C:\Users\35196\password\exams\templates\exams\student\take_exam.html first seen with mtime 1743450291.4283714
+DEBUG 2025-04-07 14:48:08,900 autoreload File C:\Users\35196\password\exams\templates\exams\teacher\change_password.html first seen with mtime 1741487991.8410819
+DEBUG 2025-04-07 14:48:08,901 autoreload File C:\Users\35196\password\exams\templates\exams\teacher\create_teacher.html first seen with mtime 1740352321.3841066
+DEBUG 2025-04-07 14:48:08,902 autoreload File C:\Users\35196\password\exams\templates\exams\teacher\homepage.html first seen with mtime 1743975504.594608
+DEBUG 2025-04-07 14:48:08,902 autoreload File C:\Users\35196\password\exams\templates\exams\teacher\teacher_exams.html first seen with mtime 1742157223.4725223
+DEBUG 2025-04-07 14:48:08,903 autoreload File C:\Users\35196\password\exams\templates\exams\teacher\teacher_list.html first seen with mtime 1742157025.9470348
+DEBUG 2025-04-07 14:48:10,560 utils (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:10.541340' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:10.541340', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:10,571 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:10,581 utils (0.000) SELECT COUNT(*) AS "__count" FROM "exams_student"; args=(); alias=default
+DEBUG 2025-04-07 14:48:10,586 utils (0.000) SELECT COUNT(*) AS "__count" FROM "exams_teacher"; args=(); alias=default
+DEBUG 2025-04-07 14:48:10,742 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."user_id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:10,757 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "exams_teacher" INNER JOIN "auth_user" ON ("exams_teacher"."user_id" = "auth_user"."id") ORDER BY "auth_user"."username" ASC LIMIT 2; args=(); alias=default
+DEBUG 2025-04-07 14:48:10,790 utils (0.000) SELECT "exams_student"."id", "exams_student"."user_id", "exams_student"."grade", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "exams_student" INNER JOIN "auth_user" ON ("exams_student"."user_id" = "auth_user"."id") ORDER BY "auth_user"."username" ASC LIMIT 1; args=(); alias=default
+DEBUG 2025-04-07 14:48:10,792 base Exception while resolving variable 'teacher' in template 'dashboard.html'.
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Student' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Student' object has no attribute 'teacher'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'teacher'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [teacher] in <Student: heki - Grade 10>
+DEBUG 2025-04-07 14:48:10,807 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" LIMIT 21; args=(); alias=default
+DEBUG 2025-04-07 14:48:10,812 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:10,819 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 9 LIMIT 21; args=(9,); alias=default
+DEBUG 2025-04-07 14:48:10,804 base Exception while resolving variable 'exams' in template 'dashboard.html'.
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\context.py", line 85, in __getitem__
+    raise KeyError(key)
+KeyError: 'exams'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'exams'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'exams'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [exams] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000026DC7BDA710>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <User: zsuzsi>>, 'perms': PermWrapper(<SimpleLazyObject: <User: zsuzsi>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'students': <Page 1 of 1>, 'teachers': <Page 1 of 1>, 'grades': {10: '10th Grade', 11: '11th Grade', 12: '12th Grade'}, 'all_teachers': <QuerySet [<Teacher: zsuzsi>, <Teacher: anti>]>, 'search_query': '', 'grade_filter': '', 'teacher_filter': ''}, {'block': <Block Node: content. Contents: [<TextNode: '\n<div class="container mt'>, <URLNode view_name=''create_teacher'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-primary '>, <IfNode>, <TextNode: '\n                </div>\n '>, <ForNode: for teacher in teachers, tail_len: 11>, <TextNode: '\n                        '>, <URLNode view_name=''teacher_list'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-outline-'>, <URLNode view_name=''create_student'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-primary '>, <ForNode: for student in students, tail_len: 11>, <TextNode: '\n                        '>, <URLNode view_name=''student_list'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-outline-'>, <IfNode>, <TextNode: '\n        </div>\n    </div'>, <ForNode: for exam in exams, tail_len: 13>, <TextNode: '\n                    </tb'>, <URLNode view_name=''my_exams'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-outline-'>]>}, {}]
+INFO 2025-04-07 14:48:10,829 basehttp "GET / HTTP/1.1" 200 8018
+DEBUG 2025-04-07 14:48:12,610 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0001_initial.py first seen with mtime 1740250524.4466584
+DEBUG 2025-04-07 14:48:12,618 autoreload File C:\Users\35196\password\exams\exams\migrations\0001_initial.py first seen with mtime 1744029234.9965873
+DEBUG 2025-04-07 14:48:12,622 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\recorder.py first seen with mtime 1740250529.85933
+DEBUG 2025-04-07 14:48:12,624 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\migrations\0001_initial.py first seen with mtime 1740250524.8708112
+DEBUG 2025-04-07 14:48:12,625 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\encodings\idna.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:12,645 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0005_alter_user_last_login_null.py first seen with mtime 1740250524.4526188
+DEBUG 2025-04-07 14:48:12,647 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\models\sql\compiler.py first seen with mtime 1740250529.9507146
+DEBUG 2025-04-07 14:48:12,687 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0012_alter_user_first_name_max_length.py first seen with mtime 1740250524.465531
+DEBUG 2025-04-07 14:48:12,695 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\migrations\0002_logentry_remove_auto_add.py first seen with mtime 1740250522.5553515
+DEBUG 2025-04-07 14:48:12,706 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\migrations\0003_logentry_add_action_flag_choices.py first seen with mtime 1740250522.5573394
+DEBUG 2025-04-07 14:48:12,707 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\__init__.py first seen with mtime 1740250524.4665256
+DEBUG 2025-04-07 14:48:12,710 autoreload File C:\Users\35196\password\exams\exams\migrations\__init__.py first seen with mtime 1740345326.5987604
+DEBUG 2025-04-07 14:48:12,713 autoreload File C:\Users\35196\password\exams\exams\migrations\0002_studentanswer.py first seen with mtime 1744029234.9995668
+DEBUG 2025-04-07 14:48:12,723 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\backends\db.py first seen with mtime 1740250527.8329294
+DEBUG 2025-04-07 14:48:12,724 autoreload File C:\Users\35196\password\exams\exams\migrations\0003_studentanswer_grade.py first seen with mtime 1744029235.001554
+DEBUG 2025-04-07 14:48:12,726 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\migrations\__init__.py first seen with mtime 1740250524.872798
+DEBUG 2025-04-07 14:48:12,734 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\middleware\common.py first seen with mtime 1740250530.1652746
+DEBUG 2025-04-07 14:48:12,742 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0009_alter_user_last_name_max_length.py first seen with mtime 1740250524.4575856
+DEBUG 2025-04-07 14:48:12,743 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\views\csrf.py first seen with mtime 1740250530.379835
+DEBUG 2025-04-07 14:48:12,745 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\backends\base.py first seen with mtime 1740250527.828956
+DEBUG 2025-04-07 14:48:12,745 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0007_alter_validators_add_error_messages.py first seen with mtime 1740250524.454605
+DEBUG 2025-04-07 14:48:12,756 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\loader.py first seen with mtime 1740250529.8513813
+DEBUG 2025-04-07 14:48:12,762 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0004_alter_user_username_opts.py first seen with mtime 1740250524.4506316
+DEBUG 2025-04-07 14:48:12,776 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\middleware\clickjacking.py first seen with mtime 1740250530.163288
+DEBUG 2025-04-07 14:48:12,779 autoreload File C:\Users\35196\AppData\Local\Programs\Python\Python310\Lib\stringprep.py first seen with mtime 1633371124.0
+DEBUG 2025-04-07 14:48:12,784 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\migrations\__init__.py first seen with mtime 1740250528.3713164
+DEBUG 2025-04-07 14:48:12,786 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0011_update_proxy_permissions.py first seen with mtime 1740250524.4625518
+DEBUG 2025-04-07 14:48:12,789 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0008_alter_user_username_max_length.py first seen with mtime 1740250524.4565911
+DEBUG 2025-04-07 14:48:12,791 autoreload File C:\Users\35196\password\exams\project_exams\wsgi.py first seen with mtime 1740249609.2488723
+DEBUG 2025-04-07 14:48:12,796 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\migrations\0001_initial.py first seen with mtime 1740250528.3703227
+DEBUG 2025-04-07 14:48:12,812 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\migrations\__init__.py first seen with mtime 1740250522.5593274
+DEBUG 2025-04-07 14:48:12,822 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\core\cache\backends\locmem.py first seen with mtime 1740250529.3527288
+DEBUG 2025-04-07 14:48:12,824 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\admin\migrations\0001_initial.py first seen with mtime 1740250522.5543592
+DEBUG 2025-04-07 14:48:12,836 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0002_alter_permission_name_max_length.py first seen with mtime 1740250524.447652
+DEBUG 2025-04-07 14:48:12,839 autoreload File C:\Users\35196\password\exams\exams\migrations\0004_examresult.py first seen with mtime 1744029235.0045345
+DEBUG 2025-04-07 14:48:12,840 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\middleware.py first seen with mtime 1740250526.650863
+DEBUG 2025-04-07 14:48:12,852 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0006_require_contenttypes_0002.py first seen with mtime 1740250524.4536128
+DEBUG 2025-04-07 14:48:12,853 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\contenttypes\migrations\0002_remove_content_type_name.py first seen with mtime 1740250524.8718045
+DEBUG 2025-04-07 14:48:12,856 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\exceptions.py first seen with mtime 1740250527.819023
+DEBUG 2025-04-07 14:48:12,858 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0010_alter_group_name_max_length.py first seen with mtime 1740250524.4605646
+DEBUG 2025-04-07 14:48:12,859 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\executor.py first seen with mtime 1740250529.848402
+DEBUG 2025-04-07 14:48:12,862 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\db\migrations\graph.py first seen with mtime 1740250529.849395
+DEBUG 2025-04-07 14:48:12,863 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\migrations\0003_alter_user_email_max_length.py first seen with mtime 1740250524.4496388
+DEBUG 2025-04-07 14:48:13,847 utils (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:13.841247' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:13.841247', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:13,853 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:13,857 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."id" = 9 LIMIT 21; args=(9,); alias=default
+DEBUG 2025-04-07 14:48:13,870 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 9 LIMIT 21; args=(9,); alias=default
+INFO 2025-04-07 14:48:13,876 basehttp "GET /remove_teacher/9/ HTTP/1.1" 200 3194
+DEBUG 2025-04-07 14:48:14,866 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\staticfiles\storage.py first seen with mtime 1740250529.2136629
+DEBUG 2025-04-07 14:48:14,869 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\storage\session.py first seen with mtime 1740250526.6657648
+DEBUG 2025-04-07 14:48:14,899 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\template\context_processors.py first seen with mtime 1740250530.1831546
+DEBUG 2025-04-07 14:48:14,905 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\context_processors.py first seen with mtime 1740250526.6498702
+DEBUG 2025-04-07 14:48:14,929 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\storage\cookie.py first seen with mtime 1740250526.6627858
+DEBUG 2025-04-07 14:48:14,960 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\conf\locale\en\__init__.py first seen with mtime 1740250519.6145663
+DEBUG 2025-04-07 14:48:14,975 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\auth\context_processors.py first seen with mtime 1740250523.9778056
+DEBUG 2025-04-07 14:48:14,977 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\messages\storage\fallback.py first seen with mtime 1740250526.663778
+DEBUG 2025-04-07 14:48:14,995 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\conf\locale\en\formats.py first seen with mtime 1740250519.632447
+DEBUG 2025-04-07 14:48:15,039 autoreload File C:\Users\35196\password\exams\venv\Lib\site-packages\django\contrib\sessions\serializers.py first seen with mtime 1740250527.8249836
+DEBUG 2025-04-07 14:48:15,868 utils (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:15.860972' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:15.860972', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:15,873 utils (0.016) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:15,878 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."id" = 9 LIMIT 21; args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,884 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 9 LIMIT 21; args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,891 utils (0.000) SELECT "exams_exam"."id" FROM "exams_exam" WHERE "exams_exam"."teacher_id" IN (9); args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,894 utils (0.000) BEGIN; args=None; alias=default
+DEBUG 2025-04-07 14:48:15,897 utils (0.000) DELETE FROM "exams_student_teachers" WHERE "exams_student_teachers"."teacher_id" IN (9); args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,906 utils (0.015) DELETE FROM "exams_teacher" WHERE "exams_teacher"."id" IN (9); args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,919 utils (0.000) COMMIT; args=None; alias=default
+DEBUG 2025-04-07 14:48:15,925 utils (0.000) SELECT "exams_teacher"."id" FROM "exams_teacher" WHERE "exams_teacher"."user_id" IN (9); args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,929 utils (0.000) SELECT "exams_student"."id" FROM "exams_student" WHERE "exams_student"."user_id" IN (9); args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,937 utils (0.000) BEGIN; args=None; alias=default
+DEBUG 2025-04-07 14:48:15,940 utils (0.000) DELETE FROM "django_admin_log" WHERE "django_admin_log"."user_id" IN (9); args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,941 utils (0.000) DELETE FROM "auth_user_groups" WHERE "auth_user_groups"."user_id" IN (9); args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,942 utils (0.000) DELETE FROM "auth_user_user_permissions" WHERE "auth_user_user_permissions"."user_id" IN (9); args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,947 utils (0.000) DELETE FROM "auth_user" WHERE "auth_user"."id" IN (9); args=(9,); alias=default
+DEBUG 2025-04-07 14:48:15,956 utils (0.016) COMMIT; args=None; alias=default
+INFO 2025-04-07 14:48:15,960 basehttp "POST /remove_teacher/9/ HTTP/1.1" 302 0
+DEBUG 2025-04-07 14:48:15,983 utils (0.015) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:15.975206' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:15.975206', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:15,990 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:16,004 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."user_id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:16,007 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher"; args=(); alias=default
+DEBUG 2025-04-07 14:48:16,012 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:16,018 utils (0.000) SELECT "exams_student"."id", "exams_student"."user_id", "exams_student"."grade" FROM "exams_student"; args=(); alias=default
+DEBUG 2025-04-07 14:48:16,022 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-04-07 14:48:16,024 base Exception while resolving variable 'teacher' in template 'dashboard.html'.
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Student' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Student' object has no attribute 'teacher'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'teacher'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [teacher] in <Student: heki - Grade 10>
+DEBUG 2025-04-07 14:48:16,030 utils (0.000) SELECT "exams_exam"."id", "exams_exam"."title", "exams_exam"."description", "exams_exam"."teacher_id", "exams_exam"."grade", "exams_exam"."created_at" FROM "exams_exam"; args=(); alias=default
+INFO 2025-04-07 14:48:16,034 basehttp "GET /dashboard/ HTTP/1.1" 200 7589
+DEBUG 2025-04-07 14:48:19,302 utils (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:19.294323' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:19.294323', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:19,307 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+INFO 2025-04-07 14:48:19,451 basehttp "GET /teachers/create/ HTTP/1.1" 200 4838
+DEBUG 2025-04-07 14:48:35,515 utils (0.016) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:35.503343' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:35.503343', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:35,521 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:35,533 utils (0.000) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."username" LIKE 'anti' ESCAPE '\' LIMIT 1; args=(1, 'anti'); alias=default
+DEBUG 2025-04-07 14:48:35,555 utils (0.000) SELECT 1 AS "a" FROM "auth_user" WHERE "auth_user"."username" = 'anti' LIMIT 1; args=(1, 'anti'); alias=default
+DEBUG 2025-04-07 14:48:38,218 utils (0.016) INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES ('pbkdf2_sha256$870000$vYovn0hb5aiexKVeNNo67v$1feTX+mYwd62omY9aovW6EEwPuNCQKj17UB7o9J6EuY=', NULL, 0, 'anti', '', '', 'anti@wm.edu', 0, 1, '2025-04-07 13:48:35.523244') RETURNING "auth_user"."id"; args=('pbkdf2_sha256$870000$vYovn0hb5aiexKVeNNo67v$1feTX+mYwd62omY9aovW6EEwPuNCQKj17UB7o9J6EuY=', None, False, 'anti', '', '', 'anti@wm.edu', False, True, '2025-04-07 13:48:35.523244'); alias=default
+DEBUG 2025-04-07 14:48:38,232 utils (0.000) INSERT INTO "exams_teacher" ("user_id") VALUES (11) RETURNING "exams_teacher"."id"; args=(11,); alias=default
+INFO 2025-04-07 14:48:38,242 basehttp "POST /teachers/create/ HTTP/1.1" 302 0
+DEBUG 2025-04-07 14:48:38,262 utils (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:38.255903' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:38.255903', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:38,267 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:38,271 utils (0.000) SELECT COUNT(*) AS "__count" FROM "exams_student"; args=(); alias=default
+DEBUG 2025-04-07 14:48:38,274 utils (0.000) SELECT COUNT(*) AS "__count" FROM "exams_teacher"; args=(); alias=default
+DEBUG 2025-04-07 14:48:38,286 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."user_id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:38,291 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "exams_teacher" INNER JOIN "auth_user" ON ("exams_teacher"."user_id" = "auth_user"."id") ORDER BY "auth_user"."username" ASC LIMIT 2; args=(); alias=default
+DEBUG 2025-04-07 14:48:38,301 utils (0.000) SELECT "exams_student"."id", "exams_student"."user_id", "exams_student"."grade", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "exams_student" INNER JOIN "auth_user" ON ("exams_student"."user_id" = "auth_user"."id") ORDER BY "auth_user"."username" ASC LIMIT 1; args=(); alias=default
+DEBUG 2025-04-07 14:48:38,303 base Exception while resolving variable 'teacher' in template 'dashboard.html'.
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Student' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Student' object has no attribute 'teacher'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'teacher'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [teacher] in <Student: heki - Grade 10>
+DEBUG 2025-04-07 14:48:38,311 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" LIMIT 21; args=(); alias=default
+DEBUG 2025-04-07 14:48:38,316 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:38,320 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 11 LIMIT 21; args=(11,); alias=default
+DEBUG 2025-04-07 14:48:38,307 base Exception while resolving variable 'exams' in template 'dashboard.html'.
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\context.py", line 85, in __getitem__
+    raise KeyError(key)
+KeyError: 'exams'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'exams'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'exams'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [exams] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000026DC7B03C70>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <User: zsuzsi>>, 'perms': PermWrapper(<SimpleLazyObject: <User: zsuzsi>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'students': <Page 1 of 1>, 'teachers': <Page 1 of 1>, 'grades': {10: '10th Grade', 11: '11th Grade', 12: '12th Grade'}, 'all_teachers': <QuerySet [<Teacher: zsuzsi>, <Teacher: anti>]>, 'search_query': '', 'grade_filter': '', 'teacher_filter': ''}, {'block': <Block Node: content. Contents: [<TextNode: '\n<div class="container mt'>, <URLNode view_name=''create_teacher'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-primary '>, <IfNode>, <TextNode: '\n                </div>\n '>, <ForNode: for teacher in teachers, tail_len: 11>, <TextNode: '\n                        '>, <URLNode view_name=''teacher_list'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-outline-'>, <URLNode view_name=''create_student'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-primary '>, <ForNode: for student in students, tail_len: 11>, <TextNode: '\n                        '>, <URLNode view_name=''student_list'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-outline-'>, <IfNode>, <TextNode: '\n        </div>\n    </div'>, <ForNode: for exam in exams, tail_len: 13>, <TextNode: '\n                    </tb'>, <URLNode view_name=''my_exams'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-outline-'>]>}, {}]
+INFO 2025-04-07 14:48:38,326 basehttp "GET / HTTP/1.1" 200 8131
+DEBUG 2025-04-07 14:48:40,494 utils (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:40.485825' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:40.485825', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:40,500 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:40,505 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."id" = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-04-07 14:48:40,520 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 11 LIMIT 21; args=(11,); alias=default
+INFO 2025-04-07 14:48:40,526 basehttp "GET /remove_teacher/10/ HTTP/1.1" 200 3195
+DEBUG 2025-04-07 14:48:42,452 utils (0.016) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:42.445674' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:42.445674', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:42,458 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:42,470 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."user_id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:42,473 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher"; args=(); alias=default
+DEBUG 2025-04-07 14:48:42,478 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:42,486 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 11 LIMIT 21; args=(11,); alias=default
+DEBUG 2025-04-07 14:48:42,491 utils (0.000) SELECT "exams_student"."id", "exams_student"."user_id", "exams_student"."grade" FROM "exams_student"; args=(); alias=default
+DEBUG 2025-04-07 14:48:42,499 utils (0.016) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-04-07 14:48:42,501 base Exception while resolving variable 'teacher' in template 'dashboard.html'.
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Student' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Student' object has no attribute 'teacher'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'teacher'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [teacher] in <Student: heki - Grade 10>
+DEBUG 2025-04-07 14:48:42,510 utils (0.000) SELECT "exams_exam"."id", "exams_exam"."title", "exams_exam"."description", "exams_exam"."teacher_id", "exams_exam"."grade", "exams_exam"."created_at" FROM "exams_exam"; args=(); alias=default
+INFO 2025-04-07 14:48:42,517 basehttp "GET /dashboard/ HTTP/1.1" 200 8031
+DEBUG 2025-04-07 14:48:50,165 utils (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:50.155152' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:50.155152', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:50,171 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:50,177 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:50,184 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+INFO 2025-04-07 14:48:50,210 basehttp "GET /teachers/8/change-password/ HTTP/1.1" 200 4460
+DEBUG 2025-04-07 14:48:57,989 utils (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:48:57.980076' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:48:57.980076', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:48:57,993 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:48:57,997 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."id" = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-04-07 14:48:58,002 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 11 LIMIT 21; args=(11,); alias=default
+INFO 2025-04-07 14:48:58,024 basehttp "GET /teachers/10/change-password/ HTTP/1.1" 200 4459
+DEBUG 2025-04-07 14:49:11,447 utils (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:49:11.434669' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:49:11.434669', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:49:11,453 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:49:11,462 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."id" = 10 LIMIT 21; args=(10,); alias=default
+DEBUG 2025-04-07 14:49:11,466 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 11 LIMIT 21; args=(11,); alias=default
+DEBUG 2025-04-07 14:49:14,494 utils (0.000) UPDATE "auth_user" SET "password" = 'pbkdf2_sha256$870000$aeYdnd9PH0Q1AY3o2U0zZ5$JJf+JAFbSnNhT0b158cIq9vttisZvt93tbexLzFfwJA=', "last_login" = NULL, "is_superuser" = 0, "username" = 'anti', "first_name" = '', "last_name" = '', "email" = 'anti@wm.edu', "is_staff" = 0, "is_active" = 1, "date_joined" = '2025-04-07 13:48:35.523244' WHERE "auth_user"."id" = 11; args=('pbkdf2_sha256$870000$aeYdnd9PH0Q1AY3o2U0zZ5$JJf+JAFbSnNhT0b158cIq9vttisZvt93tbexLzFfwJA=', False, 'anti', '', '', 'anti@wm.edu', False, True, '2025-04-07 13:48:35.523244', 11); alias=default
+INFO 2025-04-07 14:49:14,497 basehttp "POST /teachers/10/change-password/ HTTP/1.1" 302 0
+DEBUG 2025-04-07 14:49:14,515 utils (0.016) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:49:14.509060' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:49:14.509060', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:49:14,518 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:49:14,522 utils (0.000) SELECT COUNT(*) AS "__count" FROM "exams_student"; args=(); alias=default
+DEBUG 2025-04-07 14:49:14,524 utils (0.000) SELECT COUNT(*) AS "__count" FROM "exams_teacher"; args=(); alias=default
+DEBUG 2025-04-07 14:49:14,533 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" WHERE "exams_teacher"."user_id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:49:14,538 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "exams_teacher" INNER JOIN "auth_user" ON ("exams_teacher"."user_id" = "auth_user"."id") ORDER BY "auth_user"."username" ASC LIMIT 2; args=(); alias=default
+DEBUG 2025-04-07 14:49:14,545 utils (0.016) SELECT "exams_student"."id", "exams_student"."user_id", "exams_student"."grade", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "exams_student" INNER JOIN "auth_user" ON ("exams_student"."user_id" = "auth_user"."id") ORDER BY "auth_user"."username" ASC LIMIT 1; args=(); alias=default
+DEBUG 2025-04-07 14:49:14,547 base Exception while resolving variable 'teacher' in template 'dashboard.html'.
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'Student' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 893, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'Student' object has no attribute 'teacher'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'teacher'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [teacher] in <Student: heki - Grade 10>
+DEBUG 2025-04-07 14:49:14,552 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id" FROM "exams_teacher" LIMIT 21; args=(); alias=default
+DEBUG 2025-04-07 14:49:14,556 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:49:14,560 utils (0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 11 LIMIT 21; args=(11,); alias=default
+DEBUG 2025-04-07 14:49:14,550 base Exception while resolving variable 'exams' in template 'dashboard.html'.
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 883, in _resolve_lookup
+    current = current[bit]
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\context.py", line 85, in __getitem__
+    raise KeyError(key)
+KeyError: 'exams'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 889, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'exams'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 899, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'exams'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\base.py", line 906, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [exams] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x0000026DC7BD8EE0>>, 'request': <WSGIRequest: GET '/'>, 'user': <SimpleLazyObject: <User: zsuzsi>>, 'perms': PermWrapper(<SimpleLazyObject: <User: zsuzsi>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}}, {}, {'students': <Page 1 of 1>, 'teachers': <Page 1 of 1>, 'grades': {10: '10th Grade', 11: '11th Grade', 12: '12th Grade'}, 'all_teachers': <QuerySet [<Teacher: zsuzsi>, <Teacher: anti>]>, 'search_query': '', 'grade_filter': '', 'teacher_filter': ''}, {'block': <Block Node: content. Contents: [<TextNode: '\n<div class="container mt'>, <URLNode view_name=''create_teacher'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-primary '>, <IfNode>, <TextNode: '\n                </div>\n '>, <ForNode: for teacher in teachers, tail_len: 11>, <TextNode: '\n                        '>, <URLNode view_name=''teacher_list'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-outline-'>, <URLNode view_name=''create_student'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-primary '>, <ForNode: for student in students, tail_len: 11>, <TextNode: '\n                        '>, <URLNode view_name=''student_list'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-outline-'>, <IfNode>, <TextNode: '\n        </div>\n    </div'>, <ForNode: for exam in exams, tail_len: 13>, <TextNode: '\n                    </tb'>, <URLNode view_name=''my_exams'' args=[] kwargs={} as=None>, <TextNode: '" class="btn btn-outline-'>]>}, {}]
+INFO 2025-04-07 14:49:14,565 basehttp "GET / HTTP/1.1" 200 8150
+DEBUG 2025-04-07 14:49:17,228 utils (0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2025-04-07 13:49:17.221209' AND "django_session"."session_key" = '62oth7dlp5ldahr46hg5c49xdt45abrk') LIMIT 21; args=('2025-04-07 13:49:17.221209', '62oth7dlp5ldahr46hg5c49xdt45abrk'); alias=default
+DEBUG 2025-04-07 14:49:17,233 utils (0.015) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 8 LIMIT 21; args=(8,); alias=default
+DEBUG 2025-04-07 14:49:17,252 utils (0.000) SELECT "exams_teacher"."id", "exams_teacher"."user_id", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "exams_teacher" INNER JOIN "auth_user" ON ("exams_teacher"."user_id" = "auth_user"."id"); args=(); alias=default
+INFO 2025-04-07 14:49:17,258 basehttp "GET /teacher/list/ HTTP/1.1" 200 3439
