@@ -12,6 +12,7 @@
         <thead>
         <tr>
             <th>Title</th>
+            <th>Subject</th>
             <th>Description</th>
             <th>Teacher</th>
             <th>Created At</th>
@@ -21,13 +22,14 @@
         {% for exam in exams %}
         <tr>
             <td>{{ exam.title }}</td>
+            <td>{{ exam.subject }}</td>
             <td>{{ exam.description }}</td>
             <td>{{ exam.teacher.user.username }}</td>
             <td>{{ exam.created_at }}</td>
             <td><a href="{% url 'take_exam' exam.id %}" class="btn btn-primary">Take Exam</a>
                 {% for result in exam_results %}
                 {% if result.exam.id == exam.id %}
-                <span style="background-color: #007bff; color: white; padding: 5px; border-radius: 5px;">Grade: {{ result.total_grade }}</span>
+                <span style="background-color: #007bff; color: white; padding: 5px; border-radius: 5px;">Grade: {{ result.total_score }}</span>
                 {% endif %}
                 {% endfor %}
             </td>

@@ -207,7 +207,23 @@ def change_own_password(request):
 @login_required
 def create_exam(request):
     if request.method == 'POST':
-        return handle_exam_post_request(request)
+        exam_form = ExamForm(request.POST)
+        if exam_form.is_valid():
+            exam = exam_form.save(commit=False)
+            exam.teacher = request.user.teacher  # Set the teacher field to the logged-in teacher
+            exam.save()
+            # Handle questions
+            question_texts = request.POST.getlist('question_text')
+            correct_answers = request.POST.getlist('correct_answer')
+            answer_choices = request.POST.getlist('answer_choices')
+            for i in range(len(question_texts)):
+                Question.objects.create(
+                    exam=exam,
+                    question_text=question_texts[i],
+                    correct_answer=correct_answers[i],
+                    answer_choices=answer_choices[i].split(',')
+                )
+            return redirect('exam_list')  # Redirect to a list of exams or another page
     else:
         exam_form = ExamForm()
     return render(request, 'exams/create_exam.html', {'exam_form': exam_form})
@@ -474,24 +490,24 @@ def grade_exam(request, exam_id):
     if request.method == 'POST':
         form = GradeForm(request.POST, student_answers=student_answers)
         if form.is_valid():
-            total_grades = {}
-            # Save grades
+            total_scores = {}
+            # Save scores
             for answer in student_answers:
-                grade = form.cleaned_data.get(f'grade_{answer.id}')
-                answer.grade = grade
+                score = form.cleaned_data.get(f'score_{answer.id}')
+                answer.score = score
                 answer.save()
-                if answer.student.id not in total_grades:
-                    total_grades[answer.student.id] = 0
-                total_grades[answer.student.id] += grade
+                if answer.student.id not in total_scores:
+                    total_scores[answer.student.id] = 0
+                total_scores[answer.student.id] += score
 
-            # Save total grades in ExamResult
-            for student_id, total_grade in total_grades.items():
+            # Save total scores in ExamResult
+            for student_id, total_score in total_scores.items():
                 student = get_object_or_404(Student, id=student_id)
                 exam_result, created = ExamResult.objects.get_or_create(student=student, exam=exam)
-                exam_result.total_grade = total_grade
+                exam_result.total_score = total_score
                 exam_result.save()
 
-            messages.success(request, 'Grades saved successfully!')
+            messages.success(request, 'Scores saved successfully!')
             return redirect('view_student_answers', exam_id=exam.id)
     else:
         form = GradeForm(student_answers=student_answers)

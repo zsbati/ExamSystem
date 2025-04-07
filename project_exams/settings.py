@@ -36,12 +36,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'project_exams.urls'
 
-TEMPLATES = [
+TEMPLATES = [  # Corrected key
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # Ensure this directory exists
+        'DIRS': [BASE_DIR / 'templates'],  # Ensure this directory is included
         'APP_DIRS': True,
         'OPTIONS': {
+            'debug': True,  # Enable template debugging
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',

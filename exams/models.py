@@ -49,6 +49,7 @@ class Student(models.Model):
 
 class Exam(models.Model):
     title = models.CharField(max_length=200)
+    subject = models.CharField(max_length=100)
     description = models.TextField(blank=True)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
     grade = models.IntegerField(choices=Student.GRADE_CHOICES)
@@ -64,7 +65,7 @@ class Exam(models.Model):
 class ExamForm(forms.ModelForm):
     class Meta:
         model = Exam
-        fields = ['title', 'description', 'grade']
+        fields = ['title', 'description', 'grade', 'subject']
 
 
 class Question(models.Model):
@@ -81,17 +82,42 @@ class StudentAnswer(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     answer = models.CharField(max_length=200)
-    grade = models.IntegerField(null=True, blank=True)
+    score = models.IntegerField(null=True, blank=True)  # Score for the answer
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.student.user.username} - {self.question.question_text}: {self.answer}"
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.score is not None:
+            # Create or update the student ledger entry when the score is set
+            StudentLedger.objects.create(
+                student=self.student,
+                exam=self.question.exam,
+                subject=self.question.exam.subject,
+                date=self.created_at,
+                score=self.score,
+                teacher_name=self.question.exam.teacher.user.username,
+            )
+
 
 class ExamResult(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
-    total_grade = models.IntegerField(default=0)
+    total_score = models.IntegerField(default=0)  # Total score for the exam
 
     def __str__(self):
-        return f"{self.student.user.username} - {self.exam.title}: {self.total_grade}"
+        return f"{self.student.user.username} - {self.exam.title}: {self.total_score}"
+
+
+class StudentLedger(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
+    subject = models.CharField(max_length=100)
+    date = models.DateTimeField()
+    score = models.IntegerField()  # Score of the exam
+    teacher_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.student.user.username} - {self.subject} - {self.score}"

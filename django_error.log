@@ -1,4 +1,4 @@
-ERROR 2025-04-07 14:27:03,919 log Internal Server Error: /dashboard/
+ERROR 2025-04-07 18:10:35,462 log Internal Server Error: /exams/create/
 Traceback (most recent call last):
   File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
     response = get_response(request)
@@ -6,17 +6,118 @@ Traceback (most recent call last):
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
   File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
     return view_func(request, *args, **kwargs)
-  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
-    return view_func(request, *args, **kwargs)
   File "C:\Users\35196\password\exams\exams\views.py", line 21, in _wrapped_view
     return view_func(request, *args, **kwargs)
-  File "C:\Users\35196\password\exams\exams\views.py", line 369, in dashboard
-    return render(request, 'exams/dashboard.html', context)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 227, in create_exam
+    return render(request, 'exams/teacher/create_exam.html', {'exam_form': exam_form})
   File "C:\Users\35196\password\exams\venv\lib\site-packages\django\shortcuts.py", line 25, in render
     content = loader.render_to_string(template_name, context, request, using=using)
   File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
     template = get_template(template_name, using=using)
   File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
     raise TemplateDoesNotExist(template_name, chain=chain)
-django.template.exceptions.TemplateDoesNotExist: exams/dashboard.html
-ERROR 2025-04-07 14:27:03,925 basehttp "GET /dashboard/ HTTP/1.1" 500 97251
+django.template.exceptions.TemplateDoesNotExist: exams/teacher/create_exam.html
+ERROR 2025-04-07 18:10:35,479 basehttp "GET /exams/create/ HTTP/1.1" 500 96802
+ERROR 2025-04-07 18:17:14,004 log Internal Server Error: /exams/create/
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 227, in create_exam
+    return render(request, 'exams/teacher/create_exam.html', {'exam_form': exam_form})
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: exams/teacher/create_exam.html
+ERROR 2025-04-07 18:17:14,008 basehttp "GET /exams/create/ HTTP/1.1" 500 96810
+ERROR 2025-04-07 18:38:21,441 log Internal Server Error: /exams/create/
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: exams_exam.teacher_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 212, in create_exam
+    exam = exam_form.save()
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\forms\models.py", line 554, in save
+    self.instance.save()
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\models\base.py", line 892, in save
+    self.save_base(
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\models\base.py", line 998, in save_base
+    updated = self._save_table(
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\models\base.py", line 1161, in _save_table
+    results = self._do_insert(
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\models\base.py", line 1202, in _do_insert
+    return manager._insert(
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: exams_exam.teacher_id
+ERROR 2025-04-07 18:38:21,450 basehttp "POST /exams/create/ HTTP/1.1" 500 168552
+ERROR 2025-04-07 18:44:14,198 log Internal Server Error: /exams/create/
+Traceback (most recent call last):
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\35196\password\exams\exams\views.py", line 226, in create_exam
+    return redirect('exam_list')  # Redirect to a list of exams or another page
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\shortcuts.py", line 49, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\shortcuts.py", line 180, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\35196\password\exams\venv\lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'exam_list' not found. 'exam_list' is not a valid view function or pattern name.
+ERROR 2025-04-07 18:44:14,204 basehttp "POST /exams/create/ HTTP/1.1" 500 102835

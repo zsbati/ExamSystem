@@ -8,11 +8,11 @@
     <div>
         <label>{{ answer.student.user.username }} - {{ answer.question.question_text }}</label><br>
         <p><strong>Student's Answer:</strong> {{ answer.answer }}</p>
-        <label for="grade_{{ answer.id }}">Grade:</label>
-        <input type="number" name="grade_{{ answer.id }}" id="grade_{{ answer.id }}" min="0" max="100"
-               value="{{ answer.grade }}">
+        <label for="score_{{ answer.id }}">Score:</label>
+        <input type="number" name="score_{{ answer.id }}" id="score_{{ answer.id }}" min="0" max="100"
+               value="{{ answer.score }}">
     </div>
     {% endfor %}
-    <button type="submit">Save Grades</button>
+    <button type="submit">Save Scores</button>
 </form>
 {% endblock %}
