@@ -303,13 +303,16 @@ def handle_student_post_request(request, student):
         return redirect('student_list')
 
 
-@user_passes_test(is_superuser)
+@user_passes_test(lambda u: u.is_superuser)
 def remove_teacher(request, teacher_id):
     teacher = get_object_or_404(Teacher, id=teacher_id)
     user = teacher.user
-    teacher.delete()
-    user.delete()
-    messages.success(request, 'Teacher removed successfully.')
+    try:
+        teacher.delete()
+        user.delete()
+        messages.success(request, 'Teacher removed successfully.')
+    except Exception as e:
+        messages.error(request, f'An error occurred while removing the teacher: {e}')
     return redirect('dashboard')
 
 
@@ -362,7 +365,8 @@ def dashboard(request):
         'exams': exams,
     }
 
-    return render(request, 'exams/dashboard.html', context)
+    logger.debug("Rendering template: dashboard.html")
+    return render(request, 'dashboard.html', context)
 
 
 @login_required

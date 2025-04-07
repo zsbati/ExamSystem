@@ -44,8 +44,4 @@ admin.site.register(Student, StudentAdmin)
 admin.site.register(Teacher)
 
 
-def remove_teacher(request, teacher_id):
-    teacher = get_object_or_404(Teacher, id=teacher_id)
-    teacher.delete()
-    messages.success(request, 'Teacher removed successfully.')
-    return redirect('dashboard')
+
