@@ -9,7 +9,8 @@ from django.db.models import Q
 from django.forms import modelformset_factory
 from .forms import StudentCreationForm, TeacherCreationForm, ChangeUserPasswordForm, ExamForm, QuestionForm, StudentForm
 from .forms import LoginForm, StudentAnswerForm, GradeForm
-from .models import Student, Teacher, Exam, Question, StudentAnswer, ExamResult
+from .models import Student, Teacher, Exam, Question, StudentAnswer, ExamResult, StudentLedger
+from django.utils import timezone
 import logging
 
 logger = logging.getLogger(__name__)
@@ -223,7 +224,7 @@ def create_exam(request):
                     correct_answer=correct_answers[i],
                     answer_choices=answer_choices[i].split(',')
                 )
-            return redirect('exam_list')  # Redirect to a list of exams or another page
+            return redirect('teacher_exams', teacher_id=request.user.teacher.id)  # Redirect to the teacher's exams
     else:
         exam_form = ExamForm()
     return render(request, 'exams/create_exam.html', {'exam_form': exam_form})
@@ -483,10 +484,11 @@ def view_student_answers(request, exam_id):
 
 
 @login_required
-@user_passes_test(lambda u: hasattr(u, 'teacher'))
+@superuser_or_teacher_required
 def grade_exam(request, exam_id):
     exam = get_object_or_404(Exam, id=exam_id, teacher=request.user.teacher)
     student_answers = StudentAnswer.objects.filter(question__exam=exam).select_related('student')
+
     if request.method == 'POST':
         form = GradeForm(request.POST, student_answers=student_answers)
         if form.is_valid():
@@ -500,12 +502,28 @@ def grade_exam(request, exam_id):
                     total_scores[answer.student.id] = 0
                 total_scores[answer.student.id] += score
 
-            # Save total scores in ExamResult
+            # Save total scores in ExamResult and StudentLedger
             for student_id, total_score in total_scores.items():
                 student = get_object_or_404(Student, id=student_id)
                 exam_result, created = ExamResult.objects.get_or_create(student=student, exam=exam)
                 exam_result.total_score = total_score
                 exam_result.save()
+
+                # Save the total score in StudentLedger
+                ledger_entries = StudentLedger.objects.filter(student=student, exam=exam)
+                if ledger_entries.exists():
+                    ledger_entry = ledger_entries.first()
+                    ledger_entry.score = total_score
+                    ledger_entry.save()
+                else:
+                    StudentLedger.objects.create(
+                        student=student,
+                        exam=exam,
+                        subject=exam.subject,
+                        date=timezone.now(),
+                        score=total_score,
+                        teacher_name=exam.teacher.user.username
+                    )
 
             messages.success(request, 'Scores saved successfully!')
             return redirect('view_student_answers', exam_id=exam.id)
@@ -520,6 +538,11 @@ def student_homepage(request):
         student = request.user.student
         exams = student.get_accessible_exams()
         exam_results = ExamResult.objects.filter(student=student)
-        return render(request, 'exams/student/homepage.html', {'exams': exams, 'exam_results': exam_results})
+        ledger_entries = StudentLedger.objects.filter(student=student)
+        return render(request, 'exams/student/homepage.html', {
+            'exams': exams,
+            'exam_results': exam_results,
+            'ledger_entries': ledger_entries,
+        })
     else:
         return redirect('home')

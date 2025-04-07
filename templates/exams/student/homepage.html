@@ -7,6 +7,29 @@
     <h2>Welcome, {{ user.username }}!</h2>
     <p>This is the student homepage.</p>
     <!-- Add any additional content or links for students -->
+
+    <h2>Your Scores</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Date</th>
+            <th>Score</th>
+            <th>Teacher's Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entry in ledger_entries %}
+        <tr>
+            <td>{{ entry.subject }}</td>
+            <td>{{ entry.date }}</td>
+            <td>{{ entry.score }}</td>
+            <td>{{ entry.teacher_name }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
     <h2>Your Exams</h2>
     <table class="table table-striped">
         <thead>
@@ -26,7 +49,8 @@
             <td>{{ exam.description }}</td>
             <td>{{ exam.teacher.user.username }}</td>
             <td>{{ exam.created_at }}</td>
-            <td><a href="{% url 'take_exam' exam.id %}" class="btn btn-primary">Take Exam</a>
+            <td>
+                <a href="{% url 'take_exam' exam.id %}" class="btn btn-primary">Take Exam</a>
                 {% for result in exam_results %}
                 {% if result.exam.id == exam.id %}
                 <span style="background-color: #007bff; color: white; padding: 5px; border-radius: 5px;">Grade: {{ result.total_score }}</span>

@@ -119,5 +119,8 @@ class StudentLedger(models.Model):
     score = models.IntegerField()  # Score of the exam
     teacher_name = models.CharField(max_length=100)
 
+    class Meta:
+        unique_together = ('student', 'exam')
+
     def __str__(self):
         return f"{self.student.user.username} - {self.subject} - {self.score}"
