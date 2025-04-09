@@ -88,18 +88,27 @@ class StudentAnswer(models.Model):
     def __str__(self):
         return f"{self.student.user.username} - {self.question.question_text}: {self.answer}"
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        if self.score is not None:
-            # Create or update the student ledger entry when the score is set
-            StudentLedger.objects.create(
-                student=self.student,
-                exam=self.question.exam,
-                subject=self.question.exam.subject,
-                date=self.created_at,
-                score=self.score,
-                teacher_name=self.question.exam.teacher.user.username,
-            )
+
+def save(self, *args, **kwargs):
+    super().save(*args, **kwargs)
+    if self.score is not None:
+        # Check if a ledger entry already exists
+        ledger_entry, created = StudentLedger.objects.get_or_create(
+            student=self.student,
+            exam=self.question.exam,
+            defaults={
+                'subject': self.question.exam.subject,
+                'date': self.created_at,
+                'score': self.score,
+                'teacher_name': self.question.exam.teacher.user.username,
+            }
+        )
+        if not created:
+            # Update the existing ledger entry
+            ledger_entry.score = self.score
+            ledger_entry.date = self.created_at
+            ledger_entry.teacher_name = self.question.exam.teacher.user.username
+            ledger_entry.save()
 
 
 class ExamResult(models.Model):

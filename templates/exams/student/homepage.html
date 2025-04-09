@@ -13,6 +13,7 @@
         <thead>
         <tr>
             <th>Subject</th>
+            <th>title</th>
             <th>Date</th>
             <th>Score</th>
             <th>Teacher's Name</th>
@@ -22,6 +23,7 @@
         {% for entry in ledger_entries %}
         <tr>
             <td>{{ entry.subject }}</td>
+            <td>{{ entry.title }}</td>
             <td>{{ entry.date }}</td>
             <td>{{ entry.score }}</td>
             <td>{{ entry.teacher_name }}</td>

@@ -493,29 +493,45 @@ def grade_exam(request, exam_id):
         form = GradeForm(request.POST, student_answers=student_answers)
         if form.is_valid():
             total_scores = {}
+            print("Starting to process student answers...")  # Debugging print statement
+
             # Save scores
             for answer in student_answers:
                 score = form.cleaned_data.get(f'score_{answer.id}')
+                print(
+                    f"Processing answer ID: {answer.id}, student: {answer.student.user.username}, score: {score}")  # Debugging
                 answer.score = score
                 answer.save()
                 if answer.student.id not in total_scores:
                     total_scores[answer.student.id] = 0
                 total_scores[answer.student.id] += score
+                print(
+                    f"Updated total_scores for student ID {answer.student.id}: {total_scores[answer.student.id]}")  # Debugging
 
             # Save total scores in ExamResult and StudentLedger
             for student_id, total_score in total_scores.items():
                 student = get_object_or_404(Student, id=student_id)
+                print(f"Processing total score for student ID: {student_id}, total score: {total_score}")  # Debugging
+
+                # Save or update ExamResult
                 exam_result, created = ExamResult.objects.get_or_create(student=student, exam=exam)
+                print(
+                    f"ExamResult {'created' if created else 'updated'} for student ID {student_id}, exam ID {exam.id}")  # Debugging
                 exam_result.total_score = total_score
                 exam_result.save()
 
                 # Save the total score in StudentLedger
                 ledger_entries = StudentLedger.objects.filter(student=student, exam=exam)
+                print(
+                    f"Ledger entries found for student ID {student_id}, exam ID {exam.id}: {ledger_entries.count()}")  # Debugging
+
                 if ledger_entries.exists():
                     ledger_entry = ledger_entries.first()
+                    print(f"Updating existing ledger entry for student ID {student_id}, exam ID {exam.id}")  # Debugging
                     ledger_entry.score = total_score
                     ledger_entry.save()
                 else:
+                    print(f"Creating new ledger entry for student ID {student_id}, exam ID {exam.id}")  # Debugging
                     StudentLedger.objects.create(
                         student=student,
                         exam=exam,
