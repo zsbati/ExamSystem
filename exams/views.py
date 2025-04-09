@@ -562,3 +562,36 @@ def student_homepage(request):
         })
     else:
         return redirect('home')
+
+
+@login_required
+def accessible_students(request):
+    """
+    View that displays the list of students accessible to the logged-in teacher.
+    """
+    if hasattr(request.user, 'teacher'):
+        teacher = request.user.teacher
+        students = Student.objects.filter(teachers=teacher)  # Students assigned to this teacher
+        return render(request, 'exams/teacher/accessible_students.html', {
+            'students': students,
+        })
+    else:
+        return redirect('home')
+
+
+@login_required
+def view_student_ledger(request, student_id):
+    """
+    View that displays the ledger of a specific student.
+    """
+    if hasattr(request.user, 'teacher'):
+        teacher = request.user.teacher
+        student = get_object_or_404(Student, id=student_id,
+                                    teachers=teacher)  # Ensure the student belongs to this teacher
+        ledger_entries = StudentLedger.objects.filter(student=student).order_by('date')  # Order by date
+        return render(request, 'exams/student/student_ledger.html', {
+            'student': student,
+            'ledger_entries': ledger_entries,
+        })
+    else:
+        return redirect('home')

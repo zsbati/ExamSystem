@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Accessible Students{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Accessible Students</h2>
+    <p>Below is the list of students accessible to you:</p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Grade</th>
+            <th>View Ledger</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.user.first_name }} {{ student.user.last_name }}</td>
+            <td>{{ student.user.username }}</td>
+            <td>{{ student.get_grade_display }}</td>
+            <td>
+                <a href="{% url 'view_student_ledger' student.id %}" class="btn btn-primary">View Ledger</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

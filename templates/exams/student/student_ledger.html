@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Ledger{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Ledger for {{ student.user.first_name }} {{ student.user.last_name }}</h2>
+    <p>Below are the ledger entries for this student:</p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Exam Title</th>
+            <th>Date</th>
+            <th>Score</th>
+            <th>Teacher's Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entry in ledger_entries %}
+        <tr>
+            <td>{{ entry.subject }}</td>
+            <td>{{ entry.exam.title }}</td>
+            <td>{{ entry.date }}</td>
+            <td>{{ entry.score }}</td>
+            <td>{{ entry.teacher_name }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" class="text-center">No ledger entries found for this student.</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="mt-4">
+        <a href="{% url 'accessible_students' %}" class="btn btn-secondary">Back to Accessible Students</a>
+    </div>
+</div>
+{% endblock %}
