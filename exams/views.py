@@ -135,12 +135,6 @@ def create_student(request):
 
 
 @user_passes_test(is_superuser)
-def student_list(request):
-    students = Student.objects.all().select_related('user').order_by('grade', 'user__username')
-    return render(request, 'exams/student/student_list.html', {'students': students})
-
-
-@user_passes_test(is_superuser)
 def delete_student(request, student_id):
     student = get_object_or_404(Student, id=student_id)
     user = student.user
@@ -599,5 +593,6 @@ def view_student_ledger(request, student_id):
 
 @login_required
 def student_list(request):
-    students = Student.objects.prefetch_related('ledger_entries')  # Use the correct reverse relationship name
+    # Fetch students, sorted by grade and username, with ledger_entries preloaded
+    students = Student.objects.prefetch_related('ledger_entries').order_by('grade', 'user__username')
     return render(request, 'exams/student/student_list.html', {'students': students})
