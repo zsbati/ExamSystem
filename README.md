@@ -17,11 +17,13 @@ to create and administer tests for their associated students.
 
 - **User Management**:
     - Superusers can add and delete students and teachers.
-    - Superusers can associate students with teachers and disassociate them as needed.
+    - Superusers can associate students with teachers and disassociate them as needed. Superuser accesses the student list, can add and remove teachers, via checkboxes
+    - Superusers can view student grades. The student list has a 'ledger' button, that displays all the student's exams, scores. 
 
 - **Exam Management**:
     - Teachers can create tests/exams that are accessible to students associated with them.
     - Exams can be tailored for specific grades (e.g., tenth grade).
+    - Teachers can grade and re-grade exams.
 
 - **Access Control**:
     - Only students associated with a particular teacher can access the exams created by that teacher.
