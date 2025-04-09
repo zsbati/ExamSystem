@@ -21,8 +21,12 @@
     <ol>
         {% for student in students %}
         <li>
-            <strong>{{ student.user.username }}</strong> - Grade: {{ student.get_grade_display }} - Teacher: {{
-            student.teacher }}
+            <strong>{{ student.user.username }}</strong> - Grade: {{ student.get_grade_display }} - Teacher(s):
+            {% if student.teachers.all %}
+            {{ student.teachers.all|join:", " }}
+            {% else %}
+            No teacher assigned
+            {% endif %}
             <a href="{% url 'edit_student' student.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
             <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse"
                     data-bs-target="#ledger-{{ student.id }}" aria-expanded="false"
