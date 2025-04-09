@@ -595,3 +595,9 @@ def view_student_ledger(request, student_id):
         })
     else:
         return redirect('home')
+
+
+@login_required
+def student_list(request):
+    students = Student.objects.prefetch_related('ledger_entries')  # Use the correct reverse relationship name
+    return render(request, 'exams/student/student_list.html', {'students': students})

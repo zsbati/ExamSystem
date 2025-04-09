@@ -21,8 +21,44 @@
     <ol>
         {% for student in students %}
         <li>
-            {{ student.user.username }} - Grade: {{ student.get_grade_display }} - Teacher: {{ student.teacher }}
-            <a href="{% url 'edit_student' student.id %}">Edit</a> <!-- Add Edit link here -->
+            <strong>{{ student.user.username }}</strong> - Grade: {{ student.get_grade_display }} - Teacher: {{
+            student.teacher }}
+            <a href="{% url 'edit_student' student.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+            <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#ledger-{{ student.id }}" aria-expanded="false"
+                    aria-controls="ledger-{{ student.id }}">
+                View Ledger
+            </button>
+
+            <!-- Collapsible Ledger Section -->
+            <div class="collapse mt-2" id="ledger-{{ student.id }}">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Exam Title</th>
+                        <th>Date</th>
+                        <th>Score</th>
+                        <th>Teacher's Name</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for entry in student.ledger_entries.all %}
+                    <tr>
+                        <td>{{ entry.subject }}</td>
+                        <td>{{ entry.exam.title }}</td>
+                        <td>{{ entry.date }}</td>
+                        <td>{{ entry.score }}</td>
+                        <td>{{ entry.teacher_name }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center">No ledger entries found.</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </li>
         {% empty %}
         <li>No students found.</li>
@@ -30,4 +66,3 @@
     </ol>
 </div>
 {% endblock %}
-
