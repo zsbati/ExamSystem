@@ -117,7 +117,7 @@ def create_teacher(request):
 
 @user_passes_test(is_superuser)
 def teacher_list(request):
-    teachers = Teacher.objects.all().select_related('user')
+    teachers = Teacher.objects.all().select_related('user').order_by('user__username')
     return render(request, 'exams/teacher/teacher_list.html', {'teachers': teachers})
 
 
