@@ -536,7 +536,7 @@ def grade_exam(request, exam_id):
                         student=student,
                         exam=exam,
                         subject=exam.subject,
-                        date=timezone.now(),
+                        date=exam.created_at,  # Use the exam creation date
                         score=total_score,
                         teacher_name=exam.teacher.user.username
                     )
