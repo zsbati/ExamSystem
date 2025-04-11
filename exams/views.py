@@ -523,6 +523,7 @@ def grade_exam(request, exam_id):
                     ledger_entry = ledger_entries.first()
                     print(f"Updating existing ledger entry for student ID {student_id}, exam ID {exam.id}")  # Debugging
                     ledger_entry.score = total_score
+                    ledger_entry.teacher_name = exam.teacher.user.username if exam.teacher else ledger_entry.teacher_name
                     ledger_entry.save()
                 else:
                     print(f"Creating new ledger entry for student ID {student_id}, exam ID {exam.id}")  # Debugging
@@ -532,7 +533,7 @@ def grade_exam(request, exam_id):
                         subject=exam.subject,
                         date=exam.created_at,  # Use the exam creation date
                         score=total_score,
-                        teacher_name=exam.teacher.user.username
+                        teacher_name=exam.teacher.user.username if exam.teacher else "Unknown"
                     )
 
             messages.success(request, 'Scores saved successfully!')

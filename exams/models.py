@@ -51,7 +51,7 @@ class Exam(models.Model):
     title = models.CharField(max_length=200)
     subject = models.CharField(max_length=100)
     description = models.TextField(blank=True)
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null=True)
     grade = models.IntegerField(choices=Student.GRADE_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
 
