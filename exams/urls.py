@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -6,6 +6,9 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
+    path('api/', include('exams.api.urls')),
+    
+    # Existing views
     path('change-password/', views.change_own_password, name='change_own_password'),
     path('students/', views.student_list, name='student_list'),
     path('students/create/', views.create_student, name='create_student'),
