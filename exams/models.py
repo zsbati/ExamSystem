@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django import forms
+from django.utils import timezone
 
 
 # from .models import Exam
@@ -54,18 +55,46 @@ class Exam(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null=True)
     grade = models.IntegerField(choices=Student.GRADE_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
+    is_timed = models.BooleanField(default=False)
+    start_datetime = models.DateTimeField(null=True, blank=True)
+    end_datetime = models.DateTimeField(null=True, blank=True)
+    duration_hours = models.IntegerField(null=True, blank=True)
+    duration_minutes = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return f'{self.title} - Grade {self.grade}'
 
     def is_accessible_to_student(self, student):
-        return self.grade == student.grade and self.teacher in student.teachers.all()
+        if not self.grade == student.grade or self.teacher not in student.teachers.all():
+            return False
+            
+        if not self.is_timed:
+            return True
+            
+        current_time = timezone.now()
+        if self.start_datetime and current_time < self.start_datetime:
+            return False
+        if self.end_datetime and current_time > self.end_datetime:
+            return False
+        return True
+
+    def get_duration_minutes(self):
+        if not self.is_timed:
+            return None
+        return (self.duration_hours or 0) * 60 + (self.duration_minutes or 0)
 
 
 class ExamForm(forms.ModelForm):
     class Meta:
         model = Exam
-        fields = ['title', 'description', 'grade', 'subject']
+        fields = ['title', 'description', 'grade', 'subject', 'is_timed', 'start_datetime', 'end_datetime', 'duration_hours', 'duration_minutes']
+        widgets = {
+            'is_timed': forms.CheckboxInput(attrs={'onchange': 'toggleTimingOptions(this)'}),
+            'start_datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'end_datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'duration_hours': forms.NumberInput(attrs={'min': '0', 'max': '24'}),
+            'duration_minutes': forms.NumberInput(attrs={'min': '0', 'max': '59'})
+        }
 
 
 class Question(models.Model):

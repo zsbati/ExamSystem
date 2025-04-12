@@ -5,37 +5,163 @@
 
 <form id="examForm" method="POST" action="{% url 'create_exam' %}">
     {% csrf_token %}
-    {{ exam_form.as_p }}
-    <h2>Questions</h2>
-    <div id='questions'>
-        <div class='question'>
-            <label for='question_text_0'>Question:</label>
-            <input type='text' id='question_text_0' name='question_text' required>
-            <label for='correct_answer_0'>Correct Answer:</label>
-            <input type='text' id='correct_answer_0' name='correct_answer' required>
-            <label for='answer_choices_0'>Answer Choices (comma separated):</label>
-            <input type='text' id='answer_choices_0' name='answer_choices' required>
+    {{ exam_form.title.label_tag }}
+    {{ exam_form.title }}
+    {{ exam_form.description.label_tag }}
+    {{ exam_form.description }}
+    {{ exam_form.grade.label_tag }}
+    {{ exam_form.grade }}
+    {{ exam_form.subject.label_tag }}
+    {{ exam_form.subject }}
+    
+    <div class="timing-section">
+        <div class="field-group">
+            <label for="id_is_timed">Is this a timed exam?</label>
+            <input type="checkbox" name="is_timed" id="id_is_timed" onclick="document.getElementById('timing-options').style.display = this.checked ? 'block' : 'none';">
+        </div>
+        
+        <div id="timing-options" style="display: none;">
+            <div class="datetime-fields">
+                <div class="field-group">
+                    <label for="id_start_datetime">Start Date and Time:</label>
+                    <input type="datetime-local" name="start_datetime" id="id_start_datetime">
+                </div>
+                <div class="field-group">
+                    <label for="id_end_datetime">End Date and Time:</label>
+                    <input type="datetime-local" name="end_datetime" id="id_end_datetime">
+                </div>
+            </div>
+            <div class="duration-fields">
+                <h3>Exam Duration:</h3>
+                <div class="field-group">
+                    <label for="id_duration_hours">Hours:</label>
+                    <input type="number" name="duration_hours" id="id_duration_hours" min="0" max="24">
+                </div>
+                <div class="field-group">
+                    <label for="id_duration_minutes">Minutes:</label>
+                    <input type="number" name="duration_minutes" id="id_duration_minutes" min="0" max="59">
+                </div>
+            </div>
         </div>
     </div>
-    <button type='button' onclick='addQuestion()'>Add Another Question</button>
+
+    <h2>Questions</h2>
+    <div id="questions">
+        <div class="question">
+            <label for="question_text_0">Question:</label>
+            <input type="text" id="question_text_0" name="question_text" required>
+            <label for="correct_answer_0">Correct Answer:</label>
+            <input type="text" id="correct_answer_0" name="correct_answer" required>
+            <label for="answer_choices_0">Answer Choices (comma separated):</label>
+            <input type="text" id="answer_choices_0" name="answer_choices" required>
+        </div>
+    </div>
+
+    <button type="button" onclick="addQuestion()">Add Question</button>
     <button type="submit">Create Exam</button>
 </form>
 
 <script>
+    // Form validation
+    document.getElementById('examForm').addEventListener('submit', function(e) {
+        const isTimed = document.getElementById('id_is_timed').checked;
+        
+        if (isTimed) {
+            const startDate = new Date(document.getElementById('id_start_datetime').value);
+            const endDate = new Date(document.getElementById('id_end_datetime').value);
+            
+            if (endDate <= startDate) {
+                e.preventDefault();
+                alert('End date must be after start date');
+                return false;
+            }
+            
+            const hours = parseInt(document.getElementById('id_duration_hours').value) || 0;
+            const minutes = parseInt(document.getElementById('id_duration_minutes').value) || 0;
+            
+            if (hours === 0 && minutes === 0) {
+                e.preventDefault();
+                alert('Duration must be greater than 0');
+                return false;
+            }
+        }
+    });
+
+    // Question management
+    let questionCount = 1;
     function addQuestion() {
-        const questionContainer = document.getElementById('questions');
-        const questionCount = questionContainer.children.length;
-        const newQuestion = `
-            <div class='question'>
-                <label for='question_text_${questionCount}'>Question:</label>
-                <input type='text' id='question_text_${questionCount}' name='question_text' required>
-                <label for='correct_answer_${questionCount}'>Correct Answer:</label>
-                <input type='text' id='correct_answer_${questionCount}' name='correct_answer' required>
-                <label for='answer_choices_${questionCount}'>Answer Choices (comma separated):</label>
-                <input type='text' id='answer_choices_${questionCount}' name='answer_choices' required>
-            </div>
+        const questionsDiv = document.getElementById('questions');
+        const newQuestion = document.createElement('div');
+        newQuestion.className = 'question';
+        newQuestion.innerHTML = `
+            <label for="question_text_${questionCount}">Question:</label>
+            <input type="text" id="question_text_${questionCount}" name="question_text" required>
+            <label for="correct_answer_${questionCount}">Correct Answer:</label>
+            <input type="text" id="correct_answer_${questionCount}" name="correct_answer" required>
+            <label for="answer_choices_${questionCount}">Answer Choices (comma separated):</label>
+            <input type="text" id="answer_choices_${questionCount}" name="answer_choices" required>
         `;
-        questionContainer.insertAdjacentHTML('beforeend', newQuestion);
+        questionsDiv.appendChild(newQuestion);
+        questionCount++;
     }
 </script>
+
+<style>
+    .timing-section {
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    #timing-options {
+        margin-top: 15px;
+        padding: 15px;
+        background-color: #f9f9f9;
+    }
+    
+    .field-group {
+        margin: 10px 0;
+    }
+    
+    .datetime-fields, .duration-fields {
+        margin: 15px 0;
+    }
+    
+    .question {
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    
+    label {
+        display: block;
+        margin: 5px 0;
+    }
+    
+    input[type="text"],
+    input[type="number"],
+    input[type="datetime-local"] {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    
+    button {
+        margin: 10px 5px;
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
 {% endblock %}
