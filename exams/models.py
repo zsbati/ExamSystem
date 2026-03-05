@@ -51,7 +51,8 @@ class Student(models.Model):
 class Exam(models.Model):
     title = models.CharField(max_length=200)
     subject = models.CharField(max_length=100)
-    description = models.TextField(blank=True)
+    description = models.TextField(blank=True, help_text="Brief description of the exam")
+    instructions = models.TextField(blank=True, help_text="Detailed instructions for students before starting")
     teacher = models.ForeignKey(Teacher, on_delete=models.SET_NULL, null=True)
     grade = models.IntegerField(choices=Student.GRADE_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -87,8 +88,10 @@ class Exam(models.Model):
 class ExamForm(forms.ModelForm):
     class Meta:
         model = Exam
-        fields = ['title', 'description', 'grade', 'subject', 'is_timed', 'start_datetime', 'end_datetime', 'duration_hours', 'duration_minutes']
+        fields = ['title', 'description', 'instructions', 'grade', 'subject', 'is_timed', 'start_datetime', 'end_datetime', 'duration_hours', 'duration_minutes']
         widgets = {
+            'description': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Brief description of the exam...'}),
+            'instructions': forms.Textarea(attrs={'rows': 6, 'placeholder': 'Detailed instructions for students...'}),
             'is_timed': forms.CheckboxInput(attrs={'onchange': 'toggleTimingOptions(this)'}),
             'start_datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
             'end_datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
@@ -144,6 +147,10 @@ class ExamResult(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
     total_score = models.IntegerField(default=0)  # Total score for the exam
+    max_score = models.IntegerField(default=0)  # Maximum possible score
+    percentage = models.FloatField(default=0.0)  # Percentage score
+    completed_at = models.DateTimeField(auto_now_add=True)  # When exam was completed
+    time_taken = models.DurationField(null=True, blank=True)  # Time taken to complete exam
 
     def __str__(self):
         return f"{self.student.user.username} - {self.exam.title}: {self.total_score}"

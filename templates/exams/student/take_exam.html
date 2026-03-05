@@ -6,7 +6,13 @@
 {% block content %}
 <div class="container mt-4">
     <h2>{{ exam.title }}</h2>
-    <p>{{ exam.description }}</p>
+    <p><strong>Description:</strong> {{ exam.description }}</p>
+    {% if exam.instructions %}
+    <div class="alert alert-info">
+        <h5><strong>Instructions:</strong></h5>
+        <p>{{ exam.instructions|linebreaks }}</p>
+    </div>
+    {% endif %}
     <form method="post">
         {% csrf_token %}
         {{ formset.management_form }}

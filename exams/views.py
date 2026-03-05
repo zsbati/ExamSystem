@@ -461,7 +461,19 @@ def take_exam(request, exam_id):
 
 @login_required
 def exam_submitted(request):
-    return render(request, 'exams/student/exam_submitted.html')
+    # Get the most recent exam result for the current student
+    student = get_object_or_404(Student, user=request.user)
+    latest_result = ExamResult.objects.filter(student=student).order_by('-completed_at').first()
+    
+    if not latest_result:
+        return redirect('student_homepage')
+    
+    context = {
+        'exam': latest_result.exam,
+        'result': latest_result,
+        'answers': StudentAnswer.objects.filter(exam_result=latest_result).select_related('question')
+    }
+    return render(request, 'exams/student/exam_submitted.html', context)
 
 
 @login_required

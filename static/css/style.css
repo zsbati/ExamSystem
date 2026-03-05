@@ -2,3 +2,47 @@ ol {
     list-style-type: decimal; /* Ensures decimal numbering */
     padding-left: 20px; /* Adjusts padding if necessary */
 }
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-text.text-muted {
+    font-size: 0.875em;
+    color: #6c757d;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Instructions field special styling */
+.form-group textarea[name="instructions"] {
+    min-height: 150px;
+    background-color: #f8f9fa;
+}
+
+.timing-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
