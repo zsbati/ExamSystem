@@ -85,21 +85,6 @@ class Exam(models.Model):
         return (self.duration_hours or 0) * 60 + (self.duration_minutes or 0)
 
 
-class ExamForm(forms.ModelForm):
-    class Meta:
-        model = Exam
-        fields = ['title', 'description', 'instructions', 'grade', 'subject', 'is_timed', 'start_datetime', 'end_datetime', 'duration_hours', 'duration_minutes']
-        widgets = {
-            'description': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Brief description of the exam...'}),
-            'instructions': forms.Textarea(attrs={'rows': 6, 'placeholder': 'Detailed instructions for students...'}),
-            'is_timed': forms.CheckboxInput(attrs={'onchange': 'toggleTimingOptions(this)'}),
-            'start_datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-            'end_datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
-            'duration_hours': forms.NumberInput(attrs={'min': '0', 'max': '24'}),
-            'duration_minutes': forms.NumberInput(attrs={'min': '0', 'max': '59'})
-        }
-
-
 class Question(models.Model):
     exam = models.ForeignKey(Exam, related_name='questions', on_delete=models.CASCADE)
     question_text = models.TextField()

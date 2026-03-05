@@ -4,6 +4,12 @@
 <h2>{{ exam.title }}</h2>
 <p>{{ exam.teacher.user.username }}</p>
 <p><strong>Description:</strong> {{ exam.description }}</p>
+{% if exam.instructions %}
+<div class="alert alert-info">
+    <h5><strong>Instructions:</strong></h5>
+    <p>{{ exam.instructions|linebreaks }}</p>
+</div>
+{% endif %}
 <p><strong>Grade:</strong> {{ exam.grade }}</p>
 <p><strong>Created At:</strong> {{ exam.created_at }}</p>
 

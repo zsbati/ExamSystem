@@ -62,7 +62,16 @@ class ChangeUserPasswordForm(SetPasswordForm):
 class ExamForm(forms.ModelForm):
     class Meta:
         model = Exam
-        fields = ['title', 'subject', 'description', 'grade']
+        fields = ['title', 'subject', 'description', 'instructions', 'grade', 'is_timed', 'start_datetime', 'end_datetime', 'duration_hours', 'duration_minutes']
+        widgets = {
+            'description': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Brief description of the exam...'}),
+            'instructions': forms.Textarea(attrs={'rows': 6, 'placeholder': 'Detailed instructions for students...'}),
+            'is_timed': forms.CheckboxInput(attrs={'onchange': 'toggleTimingOptions(this)'}),
+            'start_datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'end_datetime': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'duration_hours': forms.NumberInput(attrs={'min': '0', 'max': '24'}),
+            'duration_minutes': forms.NumberInput(attrs={'min': '0', 'max': '59'})
+        }
 
 
 class QuestionForm(forms.ModelForm):
